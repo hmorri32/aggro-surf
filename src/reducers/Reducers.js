@@ -15,3 +15,15 @@ export const spitBeaconsReport = (state = [], action) => {
       return state
   }
 }
+
+export const spitTamarackReport = (state = [], action) => {
+  switch(action.type) {
+    case 'TAMARACK_SURF':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}
+
+
+

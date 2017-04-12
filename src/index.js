@@ -11,8 +11,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
-  /******** files ********/
-import { tides, spitBeaconsReport } from './reducers/reducers'
+  /******** import files ********/
+import { tides, spitBeaconsReport, spitTamarackReport } from './reducers/reducers'
 import AppContainer from './components/app/AppContainer';
 
   /******** yung store creation ********/
@@ -23,6 +23,7 @@ const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOL
 const root = combineReducers({
   tides,
   spitBeaconsReport,
+  spitTamarackReport,
   router: routerReducer
 })
 

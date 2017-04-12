@@ -12,3 +12,10 @@ export const beaconsSurf = (report) => {
   }
 };
 
+export const tamarackSurf = (report) => {
+  return {
+    type: 'TAMARACK_SURF',
+    report
+  }
+};
+
