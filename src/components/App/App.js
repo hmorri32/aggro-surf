@@ -6,6 +6,7 @@ import './App.css';
 const SVGguy = () => {
   return(
     <svg className='aggro-surf-welcome' viewBox="0 0 100 20">
+      {/* thanks! : https://codepen.io/web-tiki/details/YNKMpB */}
       <defs>
         <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
           <stop offset="5%" stopColor="#326384"/>
