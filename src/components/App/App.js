@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { fetchThatYungData } from '../../helpers/Fetch.js'
 import './App.css';
 
-
 const SVGguy = () => {
   return(
     <svg className='aggro-surf-welcome' viewBox="0 0 100 20">
@@ -62,13 +61,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <Link to='/suh'>
-            <SVGguy />
-          </Link>
-        <h2 className="surf-sauce-h2">ULTRA CHIC SURF</h2>
-        </div>
-      <div className="App-background"></div>
+          <div className="App-header">
+            <Link to='/suh'>
+              <SVGguy />
+            </Link>
+            <h2 className="surf-sauce-h2">ULTRA CHIC SURF</h2>
+          </div>
+        <div className="App-background"></div>
       </div>
     );
   }

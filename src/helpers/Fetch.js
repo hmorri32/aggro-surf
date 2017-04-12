@@ -1,3 +1,4 @@
+import { store } from '../index.js'
 import { saintDiegoTides } from '../actions/actions'
 
 
@@ -12,7 +13,7 @@ export const fetchThatYungData = () => {
   .then((json) => {
     json.map((stuff) => {
       console.log(stuff);
-      saintDiegoTides(stuff)
+      store.dispatch(saintDiegoTides(stuff))
     })
   })
 }

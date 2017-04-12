@@ -26,7 +26,7 @@ const root = combineReducers({
   router: routerReducer
 })
 
-const store = createStore(root, devTools, applyMiddleware(middleware))
+export const store = createStore(root, devTools, applyMiddleware(middleware))
 
 const router = (
   <Provider store={ store }>
