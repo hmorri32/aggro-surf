@@ -1,5 +1,5 @@
 export const tides = (state = {}, action) => {
-  switch(action.type){
+  switch(action.type) {
     case 'GRAB_TIDES':
       return [...state, action.tides]
     default:
@@ -7,3 +7,11 @@ export const tides = (state = {}, action) => {
   }
 };
 
+export const spitBeaconsReport = (state = [], action) => {
+  switch(action.type) {
+    case 'BEACONS_REPORT':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}

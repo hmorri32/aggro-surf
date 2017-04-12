@@ -4,3 +4,11 @@ export const saintDiegoTides = (tides) => {
     tides
   }
 };
+
+export const beaconsSurf = (report) => {
+  return {
+    type: 'BEACONS_REPORT',
+    report
+  }
+};
+

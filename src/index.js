@@ -12,8 +12,8 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
   /******** files ********/
-import { tides } from './reducers/Reducers'
-import AppContainer from './components/App/AppContainer';
+import { tides, spitBeaconsReport } from './reducers/reducers'
+import AppContainer from './components/app/AppContainer';
 
   /******** yung store creation ********/
 const history    = createHistory()
@@ -22,6 +22,7 @@ const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOL
 
 const root = combineReducers({
   tides,
+  spitBeaconsReport,
   router: routerReducer
 })
 
@@ -30,7 +31,7 @@ export const store = createStore(root, devTools, applyMiddleware(middleware))
 const router = (
   <Provider store={ store }>
     <ConnectedRouter history={ history } >
-      <Route exact path='/' component={ AppContainer } />
+      <Route path='/' component={ AppContainer } />
     </ConnectedRouter>
   </Provider>
 )
