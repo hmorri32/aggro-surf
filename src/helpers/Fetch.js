@@ -14,6 +14,7 @@ export const fetchThatYungData = () => {
     json.map((stuff) => {
       console.log(stuff);
       store.dispatch(saintDiegoTides(stuff))
+      return stuff
     })
   })
 }
