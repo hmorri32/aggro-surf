@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchThatYungData } from '../../helpers/Fetch.js'
 import './App.css';
 
 
@@ -47,12 +48,14 @@ const SVGguy = () => {
 class App extends Component {
 
   componentDidMount() {
-    fetch('http://api.spitcast.com/api/spot/forecast/235/')
-    .then(response => response.json())
-    .then((json) => {
-      console.log(json);
-      // yung spit cast!! 
-    })
+    fetchThatYungData()
+    // fetch('http://api.spitcast.com/api/county/tide/san-diego/')
+    // .then(response => response.json())
+    // .then((json) => {
+    //   json.map((stuff) => {
+    //     this.props.saintDiegoTides(stuff)
+    //   })
+    // })
   }
 
 
@@ -63,10 +66,9 @@ class App extends Component {
           <Link to='/suh'>
             <SVGguy />
           </Link>
-          <h2 className="surf-sauce-h2">ULTRA CHIC SURF</h2>
+        <h2 className="surf-sauce-h2">ULTRA CHIC SURF</h2>
         </div>
-        <div className="App-background">
-        </div>
+      <div className="App-background"></div>
       </div>
     );
   }

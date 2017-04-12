@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 
   /******** files ********/
-import { reducer } from './reducers/Reducers'
+import { reducer, tides } from './reducers/Reducers'
 import AppContainer from './components/App/AppContainer';
 
   /******** yung store creation ********/
@@ -22,6 +22,7 @@ const devTools   = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOL
 
 const root = combineReducers({
   reducer,
+  tides,
   router: routerReducer
 })
 
