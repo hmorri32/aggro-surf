@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchThatYungData } from '../../helpers/Fetch.js'
+import { yungTides } from '../../helpers/Fetch.js'
 import './App.css';
 
 const SVGguy = () => {
@@ -47,16 +47,8 @@ const SVGguy = () => {
 class App extends Component {
 
   componentDidMount() {
-    fetchThatYungData()
-    // fetch('http://api.spitcast.com/api/county/tide/san-diego/')
-    // .then(response => response.json())
-    // .then((json) => {
-    //   json.map((stuff) => {
-    //     this.props.saintDiegoTides(stuff)
-    //   })
-    // })
+    yungTides()
   }
-
 
   render() {
     return (
