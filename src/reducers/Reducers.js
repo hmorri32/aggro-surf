@@ -25,5 +25,14 @@ export const spitTamarackReport = (state = [], action) => {
   }
 }
 
+export const surfLineBeaconsReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_BEACONS_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
 
 
