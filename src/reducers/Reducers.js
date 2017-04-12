@@ -16,6 +16,15 @@ export const spitBeaconsReport = (state = [], action) => {
   }
 }
 
+export const spitPontoReport = (state = [], action) => {
+  switch(action.type) {
+    case 'PONTO_SURF':
+    return [...state, action.report]
+    default:
+    return state
+  }
+}
+
 export const spitTamarackReport = (state = [], action) => {
   switch(action.type) {
     case 'TAMARACK_SURF':
@@ -28,6 +37,24 @@ export const spitTamarackReport = (state = [], action) => {
 export const surfLineBeaconsReport = (state = {}, action) => {
   switch(action.type) {
     case 'SL_BEACONS_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
+export const surfLinePontoReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_PONTO_SURF':
+    return action.report
+    default:
+    return state
+  }
+}
+
+export const surfLineTamarackReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_TAMARACK_SURF':
       return action.report
     default:
       return state

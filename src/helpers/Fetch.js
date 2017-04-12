@@ -19,6 +19,14 @@ export const fetchYungSpitCastData = () => {
       return report
     })
   })
+  fetch('http://api.spitcast.com/api/spot/forecast/236/')
+  .then(response => response.json())
+  .then((json) => {
+    json.map((report) => {
+      store.dispatch(actions.spitCastPontoSurf(report))
+      return report
+    })
+  })
   fetch('http://api.spitcast.com/api/county/tide/san-diego/')
   .then(response => response.json())
   .then((json) => {
@@ -35,6 +43,18 @@ export const fetchYungSurflineData = () => {
   .then((json) => {
     let report = json.Surf
     store.dispatch(actions.surfLineBeaconsSurf(report))
+  })
+  fetch('http://api.surfline.com/v1/forecasts/4773')
+  .then(response => response.json())
+  .then((json) => {
+    let report = json.Surf
+    store.dispatch(actions.surfLinePontoReport(report))
+  })
+  fetch('http://api.surfline.com/v1/forecasts/4242')
+  .then(response => response.json())
+  .then((json) => {
+    let report = json.Surf
+    store.dispatch(actions.surfLineTamarackReport(report))
   })
 }
 
