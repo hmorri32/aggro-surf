@@ -30,7 +30,7 @@ const store = createStore(root, devTools, applyMiddleware(middleware))
 const router = (
   <Provider store={ store }>
     <ConnectedRouter history={ history } >
-      <Route path='/' component={ AppContainer } />
+      <Route exact path='/' component={ AppContainer } />
     </ConnectedRouter>
   </Provider>
 )

@@ -30,16 +30,16 @@ const SVGguy = () => {
         textAnchor="middle"
         x="50"
         y="15"
-        fontSize="15"
+        fontSize="14"
         fill="url(#wave)"
-        fillOpacity="1">aggro-surf</text>
+        fillOpacity="1">AGGRO</text>
       <text
         textAnchor="middle"
         x="50"
         y="15"
-        fontSize="15"
+        fontSize="14"
         fill="url(#gradient)"
-        fillOpacity="0.5">aggro-surf</text>
+        fillOpacity="0.5">AGGRO</text>
     </svg>
   )
 }
@@ -52,6 +52,7 @@ class App extends Component {
           <Link to='/suh'>
             <SVGguy />
           </Link>
+          <h2 className="surf-sauce-h2">ULTRA CHIC SURF</h2>
         </div>
         <div className="App-background">
         </div>
