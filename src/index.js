@@ -13,7 +13,7 @@ import { Route } from 'react-router-dom';
 
   /******** files ********/
 import { reducer } from './reducers/Reducers'
-import App from './components/App/App';
+import AppContainer from './components/App/AppContainer';
 
   /******** yung store creation ********/
 const history    = createHistory()
@@ -30,7 +30,7 @@ const store = createStore(root, devTools, applyMiddleware(middleware))
 const router = (
   <Provider store={ store }>
     <ConnectedRouter history={ history } >
-      <Route path='/' component={ App } />
+      <Route path='/' component={ AppContainer } />
     </ConnectedRouter>
   </Provider>
 )
