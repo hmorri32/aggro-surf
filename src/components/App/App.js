@@ -45,6 +45,17 @@ const SVGguy = () => {
 }
 
 class App extends Component {
+
+  componentDidMount() {
+    fetch('http://api.spitcast.com/api/spot/forecast/235/')
+    .then(response => response.json())
+    .then((json) => {
+      console.log(json);
+      // yung spit cast!! 
+    })
+  }
+
+
   render() {
     return (
       <div className="App">
