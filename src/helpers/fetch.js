@@ -32,7 +32,6 @@ export const fetchYungSpitCastData = () => {
   .then((json) => {
     json.map((report) => {
       store.dispatch(actions.spitCastBlacksSurf(report))
-      console.log(report);
       return report
     })
   })
