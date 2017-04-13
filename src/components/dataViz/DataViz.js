@@ -7,22 +7,25 @@ import './DataViz.css';
 class DataViz extends Component {
 
   tideData() {
+    const { tides, surfLineBeaconsTide } = this.props
+    const chartOptions = {
+      pan: { enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}},
+      zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}}
+    }
 
-    const chartOptions = { pan: {enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}}, zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}} }
-
-    const mapped = this.props.tides.map((stuff) => {
+    const mapped = tides.map((stuff) => {
       return stuff.tide
     })
 
-    const hourly = this.props.tides.map((tide) => {
+    const hourly = tides.map((tide) => {
       return tide.hour
     })
 
-    const mapped2 = this.props.surfLineBeaconsTide.map((stuff) => {
+    const mapped2 = surfLineBeaconsTide.map((stuff) => {
       return stuff.height
     })
 
-    const hourly2 = this.props.surfLineBeaconsTide.map((tide) => {
+    const hourly2 = surfLineBeaconsTide.map((tide) => {
       return tide.Localtime
     })
 
@@ -70,7 +73,56 @@ class DataViz extends Component {
   }
 
   gimmeBeaconsSurfData() {
-    
+
+    const { spitBeaconsReport, surfLineBeaconsReport } = this.props;
+
+    function flatten(arr) {
+      return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+      }, []);
+    }
+
+    const slBeaconsData= flatten(surfLineBeaconsReport)
+
+
+    let spitBeaconData = spitBeaconsReport.map((stuff) => {
+      return stuff.size_ft
+    })
+
+    let spitBeaconYaxisLabel = spitBeaconsReport.map((stuff) => {
+      return stuff.hour
+    })
+
+
+    const data = {
+      labels: spitBeaconYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast Beacons',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitBeaconData,
+        },
+        {
+          label: 'Surfline Beacons',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slBeaconsData,
+        }
+      ]
+    };
+
+    return (
+      <div>
+        <RC2 data={data} type='bar' />
+      </div>
+    )
   }
 
   render() {
@@ -78,6 +130,7 @@ class DataViz extends Component {
       <div className='tides'>
         <h2>saintDiegoTidesDealwithit</h2>
           {this.tideData()}
+          {this.gimmeBeaconsSurfData()}
       </div>
     )
   }
