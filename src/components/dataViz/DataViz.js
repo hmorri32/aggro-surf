@@ -37,6 +37,11 @@ class DataViz extends Component {
       },
       scales: {
         yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet',
+            fontColor: 'black'
+          },
           gridLines: {
             color: 'rgba(255,255,255, 0.5)'
           },
@@ -143,9 +148,20 @@ class DataViz extends Component {
       ]
     };
 
+    const expo = {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet'
+          }
+        }]
+      }
+    }
+
     return (
       <div>
-        <RC2 data={data} type='bar' />
+        <RC2 data={data} type='bar' options={expo} />
       </div>
     )
   }
