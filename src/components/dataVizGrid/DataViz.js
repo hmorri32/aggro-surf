@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import TideVizContainer from '../tides/TideVizContainer.js';
-import SpotChartsContainer from '../spotCharts/SpotChartsContainer.js';
+import TideVizContainer     from '../tides/TideVizContainer.js';
+import SpotChartsContainer  from '../spotCharts/SpotChartsContainer.js';
 import './DataViz.css';
 
 class dataVizGrid extends Component {
