@@ -1,27 +1,26 @@
-
 .App-header {
-  height: 450px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
+  display         : flex;
+  height          : 450px;
+  padding         : 20px;
+  text-align      : center;
+  flex-direction  : column;
+  justify-content : center;
 }
 
 .App-background {
-  background-image: url('./waves.svg')
+  background-image : url('./waves.svg');
 }
 
 .aggro-surf-welcome {
-  max-height: 420px;
-  min-height: 120px;
-  font-family: Roboto;
+  min-height  : 120px;
+  max-height  : 420px;
+  font-family : Roboto;
 }
 
 .surf-sauce-h2 {
-  color: #123752;
-  margin: 0px;
-  padding: 0px;
-  font-family: Roboto;
-  font-weight: 100;
+  margin      : 0px;
+  padding     : 0px;
+  color       : #123752;
+  font-family : Roboto;
+  font-weight : 100;
 }

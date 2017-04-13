@@ -61,6 +61,15 @@ export const surfLineBeaconsTide = (state = {}, action) => {
   }
 }
 
+export const surfLineBlacksReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_BLACKS_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
 export const surfLinePontoReport = (state = {}, action) => {
   switch(action.type) {
     case 'SL_PONTO_SURF':

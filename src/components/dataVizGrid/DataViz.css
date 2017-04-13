@@ -1,6 +1,6 @@
 .tides {
   display          : flex;
-  width            : 90%;
+  width            : 80%;
   margin           : auto;
   padding          : 10px;
   background-color : white;
@@ -13,4 +13,3 @@
   text-align : center;
 }
 
-/* .tide-charts { width: 75%; } */

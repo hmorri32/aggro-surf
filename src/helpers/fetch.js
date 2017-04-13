@@ -32,7 +32,6 @@ export const fetchYungSpitCastData = () => {
   .then((json) => {
     json.map((report) => {
       store.dispatch(actions.spitCastBlacksSurf(report))
-      console.log(report);
       return report
     })
   })
@@ -58,7 +57,11 @@ export const fetchYungSurflineData = () => {
   .then((json) => {
     store.dispatch(actions.surfLineBeaconsTide(json.Tide.dataPoints))
   })
-
+  fetch('http://api.surfline.com/v1/forecasts/4245')
+  .then(response => response.json())
+  .then((json) => {
+    store.dispatch(actions.surfLineBlacksSurf(json.Surf))
+  })
   fetch('http://api.surfline.com/v1/forecasts/4773')
   .then(response => response.json())
   .then((json) => {

@@ -33,6 +33,12 @@ export const spitCastTamarackSurf = (report) => {
   }
 };
 
+export const surfLineBeaconsTide = (report) => {
+  return {
+    type: 'SL_BEACONS_TIDE',
+    report
+  }
+};
 
 export const surfLineBeaconsSurf = (report) => {
   return {
@@ -41,12 +47,13 @@ export const surfLineBeaconsSurf = (report) => {
   }
 };
 
-export const surfLineBeaconsTide = (report) => {
+export const surfLineBlacksSurf = (report) => {
   return {
-    type: 'SL_BEACONS_TIDE',
+    type: 'SL_BLACKS_SURF',
     report
   }
 };
+
 
 export const surfLinePontoReport = (report) => {
   return {
