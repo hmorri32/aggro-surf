@@ -16,6 +16,15 @@ export const spitBeaconsReport = (state = [], action) => {
   }
 }
 
+export const spitBlacksReport = (state = [], action) => {
+  switch(action.type) {
+    case 'BLACKS_REPORT':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}
+
 export const spitPontoReport = (state = [], action) => {
   switch(action.type) {
     case 'PONTO_SURF':

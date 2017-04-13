@@ -27,6 +27,15 @@ export const fetchYungSpitCastData = () => {
       return report
     })
   })
+  fetch('http://api.spitcast.com/api/spot/forecast/229/')
+  .then(response => response.json())
+  .then((json) => {
+    json.map((report) => {
+      store.dispatch(actions.spitCastBlacksSurf(report))
+      console.log(report);
+      return report
+    })
+  })
   fetch('http://api.spitcast.com/api/county/tide/san-diego/')
   .then(response => response.json())
   .then((json) => {
