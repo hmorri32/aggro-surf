@@ -9,7 +9,7 @@ class TideViz extends Component {
 
     const zoomZoom = {
       pan: { enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}},
-      zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}}
+      zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}},
     }
 
     const mapped = tides.map((stuff) => {
@@ -55,7 +55,7 @@ class TideViz extends Component {
           },
           ticks: {
             fontColor: 'black'
-          },
+          }
         }]
       }
     }

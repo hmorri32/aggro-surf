@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import RC2 from 'react-chartjs2';
+import TideVizContainer from '../tides/TideVizContainer.js';
 import './DataViz.css';
-import TideVizContainer from '../tides/TideVizContainer.js'
 
 class DataViz extends Component {
 
@@ -48,6 +49,34 @@ class DataViz extends Component {
         }
       ]
     };
+    const gridLineOptions = {
+      legend: {
+        labels: {
+          fontColor: 'black'
+        }
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet',
+            fontColor: 'black'
+          },
+          ticks: {
+            beginAtZero: true,
+            fontColor: 'black'
+          },
+        }],
+        xAxes: [{
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            fontColor: 'black'
+          },
+        }]
+      },
+    }
 
     const expo = {
       scales: {
@@ -62,7 +91,7 @@ class DataViz extends Component {
 
     return (
       <div>
-        <RC2 data={data} type='bar' options={expo} />
+        <RC2 data={data} type='bar' options={expo, gridLineOptions} />
       </div>
     )
   }
@@ -75,7 +104,9 @@ class DataViz extends Component {
           <TideVizContainer />
         </div>
         <div className='tides'>
-          <h2 className='SD-tides'>BEACONS (wave height)</h2>
+            <Link to={`/${this.props.spitBeaconsReport[0].spot_id}/`}>
+            <h2 className='SD-tides'>BEACONS</h2>
+          </Link>
           {this.beaconsForecastData()}
         </div>
       </div>
