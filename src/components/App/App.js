@@ -22,7 +22,7 @@ class App extends Component {
         }/>
         <div className="App-background">
           <Route exact path='/suh' component={ DataVizContainer } />
-          <Route exact path='/:id/' component={ SpotDetailContainer }/>
+          <Route exact path='/suh/:id/' component={ SpotDetailContainer }/>
         </div>
       </div>
     );

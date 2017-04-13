@@ -104,7 +104,7 @@ class DataViz extends Component {
           <TideVizContainer />
         </div>
         <div className='tides'>
-            <Link to={`/${this.props.spitBeaconsReport[0].spot_id}/`}>
+            <Link to={`/suh/${this.props.spitBeaconsReport[0].spot_id}/`}>
             <h2 className='SD-tides'>BEACONS</h2>
           </Link>
           {this.beaconsForecastData()}
