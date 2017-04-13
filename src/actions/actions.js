@@ -12,9 +12,9 @@ export const spitCastBeaconsSurf = (report) => {
   }
 };
 
-export const spitCastTamarackSurf = (report) => {
+export const spitCastBlacksSurf = (report) => {
   return {
-    type: 'TAMARACK_SURF',
+    type: 'BLACKS_REPORT',
     report
   }
 };
@@ -25,6 +25,14 @@ export const spitCastPontoSurf = (report) => {
     report
   }
 };
+
+export const spitCastTamarackSurf = (report) => {
+  return {
+    type: 'TAMARACK_SURF',
+    report
+  }
+};
+
 
 export const surfLineBeaconsSurf = (report) => {
   return {

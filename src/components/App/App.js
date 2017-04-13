@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Route }  from 'react-router-dom';
 
 import { fetchYungSpitCastData, fetchYungSurflineData } from '../../helpers/fetch.js';
-import { WelcomeScreen } from '../welcomeScreen/WelcomeScreen'
-import  DataVizContainer from '../dataViz/DataVizContainer'
+import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
+import DataVizContainer    from '../dataViz/DataVizContainer';
+import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
         }/>
         <div className="App-background">
           <Route exact path='/suh' component={ DataVizContainer } />
+          <Route exact path='/suh/:id/' component={ SpotDetailContainer }/>
         </div>
       </div>
     );
