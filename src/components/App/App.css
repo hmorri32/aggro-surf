@@ -1,6 +1,6 @@
 
 .App-header {
-  height: 150px;
+  height: 450px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -8,12 +8,11 @@
 }
 
 .App-background {
-  height: 100vh;
   background-image: url('./waves.svg')
 }
 
 .aggro-surf-welcome {
-  max-height: 120px;
+  max-height: 420px;
   min-height: 120px;
   font-family: Roboto;
 }

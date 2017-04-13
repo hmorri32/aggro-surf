@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { VictoryLine } from 'victory';
 import RC2 from 'react-chartjs2';
 import './DataViz.css';
 // import {zoom, pan, limits} from 'chartjs-plugin-zoom'
 
 class DataViz extends Component {
 
-  tideData() {
+  sanDiegoTideData() {
     const { tides, surfLineBeaconsTide } = this.props
-    const chartOptions = {
+
+    const zoomZoom = {
       pan: { enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}},
       zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}}
     }
@@ -28,6 +28,33 @@ class DataViz extends Component {
     const hourly2 = surfLineBeaconsTide.map((tide) => {
       return tide.Localtime
     })
+
+    const gridLineOptions = {
+      legend: {
+        labels: {
+          fontColor: 'black'
+        }
+      },
+      scales: {
+        yAxes: [{
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            beginAtZero: true,
+            fontColor: 'black'
+          },
+        }],
+        xAxes: [{
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            fontColor: 'black'
+          },
+        }]
+      }
+    }
 
     const data = {
       labels: hourly,
@@ -65,14 +92,14 @@ class DataViz extends Component {
     };
 
     return (
-      <div>
-        <RC2 data={data} type='line' />
-        <RC2 data={data2} type='line' />
+      <div className='tide-charts'>
+        <RC2 data={data} type='line' options={gridLineOptions}/>
+        <RC2 data={data2} type='line' options={gridLineOptions}/>
       </div>
     )
   }
 
-  gimmeBeaconsSurfData() {
+  beaconsForecastData() {
 
     const { spitBeaconsReport, surfLineBeaconsReport } = this.props;
 
@@ -82,9 +109,7 @@ class DataViz extends Component {
       }, []);
     }
 
-    const slBeaconsData= flatten(surfLineBeaconsReport)
-
-
+    let slBeaconsData  = flatten(surfLineBeaconsReport)
     let spitBeaconData = spitBeaconsReport.map((stuff) => {
       return stuff.size_ft
     })
@@ -98,7 +123,7 @@ class DataViz extends Component {
       labels: spitBeaconYaxisLabel,
       datasets: [
         {
-          label: 'Spitcast Beacons',
+          label: 'Spitcast',
           backgroundColor: '#52B3D9',
           borderColor: '#52B3D9',
           borderWidth: 1,
@@ -107,7 +132,7 @@ class DataViz extends Component {
           data: spitBeaconData,
         },
         {
-          label: 'Surfline Beacons',
+          label: 'Surfline',
           backgroundColor: '#C5EFF7',
           borderColor: '#C5EFF7',
           borderWidth: 1,
@@ -127,10 +152,16 @@ class DataViz extends Component {
 
   render() {
     return (
-      <div className='tides'>
-        <h2>saintDiegoTidesDealwithit</h2>
-          {this.tideData()}
-          {this.gimmeBeaconsSurfData()}
+      <div>
+        <div className='tides'>
+          <h2 className='SD-tides'>Saint Diego Tides (dealwithit)</h2>
+          {this.sanDiegoTideData()}
+        </div>
+        <div className='tides'>
+          <h2 className='SD-tides'>BEACONS (wave height)</h2>
+          {this.beaconsForecastData()}
+        </div>
+
       </div>
     )
   }
