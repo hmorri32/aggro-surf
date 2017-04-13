@@ -1,30 +1,65 @@
 import React, { Component } from 'react';
-import { VictoryLine } from 'victory';
 import RC2 from 'react-chartjs2';
 import './DataViz.css';
 // import {zoom, pan, limits} from 'chartjs-plugin-zoom'
 
 class DataViz extends Component {
 
-  tideData() {
+  sanDiegoTideData() {
+    const { tides, surfLineBeaconsTide } = this.props
 
-    const chartOptions = { pan: {enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}}, zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}} }
+    const zoomZoom = {
+      pan: { enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}},
+      zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}}
+    }
 
-    const mapped = this.props.tides.map((stuff) => {
+    const mapped = tides.map((stuff) => {
       return stuff.tide
     })
 
-    const hourly = this.props.tides.map((tide) => {
+    const hourly = tides.map((tide) => {
       return tide.hour
     })
 
-    const mapped2 = this.props.surfLineBeaconsTide.map((stuff) => {
+    const mapped2 = surfLineBeaconsTide.map((stuff) => {
       return stuff.height
     })
 
-    const hourly2 = this.props.surfLineBeaconsTide.map((tide) => {
+    const hourly2 = surfLineBeaconsTide.map((tide) => {
       return tide.Localtime
     })
+
+    const gridLineOptions = {
+      legend: {
+        labels: {
+          fontColor: 'black'
+        }
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet',
+            fontColor: 'black'
+          },
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            beginAtZero: true,
+            fontColor: 'black'
+          },
+        }],
+        xAxes: [{
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            fontColor: 'black'
+          },
+        }]
+      }
+    }
 
     const data = {
       labels: hourly,
@@ -62,22 +97,87 @@ class DataViz extends Component {
     };
 
     return (
-      <div>
-        <RC2 data={data} type='line' />
-        <RC2 data={data2} type='line' />
+      <div className='tide-charts'>
+        <RC2 data={data} type='line' options={gridLineOptions}/>
+        <RC2 data={data2} type='line' options={gridLineOptions}/>
       </div>
     )
   }
 
-  gimmeBeaconsSurfData() {
-    
+  beaconsForecastData() {
+
+    const { spitBeaconsReport, surfLineBeaconsReport } = this.props;
+
+    function flatten(arr) {
+      return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+      }, []);
+    }
+
+    let slBeaconsData  = flatten(surfLineBeaconsReport)
+    let spitBeaconData = spitBeaconsReport.map((stuff) => {
+      return stuff.size_ft
+    })
+
+    let spitBeaconYaxisLabel = spitBeaconsReport.map((stuff) => {
+      return stuff.hour
+    })
+
+
+    const data = {
+      labels: spitBeaconYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitBeaconData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slBeaconsData,
+        }
+      ]
+    };
+
+    const expo = {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet'
+          }
+        }]
+      }
+    }
+
+    return (
+      <div>
+        <RC2 data={data} type='bar' options={expo} />
+      </div>
+    )
   }
 
   render() {
     return (
-      <div className='tides'>
-        <h2>saintDiegoTidesDealwithit</h2>
-          {this.tideData()}
+      <div>
+        <div className='tides'>
+          <h2 className='SD-tides'>Saint Diego Tides (dealwithit)</h2>
+          {this.sanDiegoTideData()}
+        </div>
+        <div className='tides'>
+          <h2 className='SD-tides'>BEACONS (wave height)</h2>
+          {this.beaconsForecastData()}
+        </div>
+
       </div>
     )
   }
