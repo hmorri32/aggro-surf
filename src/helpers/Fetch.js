@@ -47,12 +47,9 @@ export const fetchYungSurflineData = () => {
   fetch('http://api.surfline.com/v1/forecasts/4772')
   .then(response => response.json())
   .then((json) => {
-
-    let report = json.Tide.dataPoints.map((stuff) => {
-      console.log(stuff.height);
-    })
+    store.dispatch(actions.surfLineBeaconsTide(json.Tide.dataPoints))
   })
-  
+
   fetch('http://api.surfline.com/v1/forecasts/4773')
   .then(response => response.json())
   .then((json) => {
