@@ -63,16 +63,21 @@ class DataViz extends Component {
 
     return (
       <div>
-      <RC2 data={data} type='line' />
-      <RC2 data={data2} type='line' />
+        <RC2 data={data} type='line' />
+        <RC2 data={data2} type='line' />
       </div>
     )
+  }
+
+  gimmeBeaconsSurfData() {
+    
   }
 
   render() {
     return (
       <div className='tides'>
-        {this.tideData()}
+        <h2>saintDiegoTidesDealwithit</h2>
+          {this.tideData()}
       </div>
     )
   }
