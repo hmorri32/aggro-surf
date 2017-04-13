@@ -3,7 +3,7 @@ import { Route }  from 'react-router-dom';
 
 import { fetchYungSpitCastData, fetchYungSurflineData } from '../../helpers/fetch.js';
 import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
-import DataVizContainer    from '../dataViz/DataVizContainer';
+import dataVizContainer    from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
 import './App.css';
 
@@ -21,7 +21,7 @@ class App extends Component {
           <WelcomeScreen />
         }/>
         <div className="App-background">
-          <Route exact path='/suh' component={ DataVizContainer } />
+          <Route exact path='/suh' component={ dataVizContainer } />
           <Route exact path='/suh/:id/' component={ SpotDetailContainer }/>
         </div>
       </div>

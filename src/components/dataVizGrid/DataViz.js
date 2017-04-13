@@ -4,7 +4,7 @@ import RC2 from 'react-chartjs2';
 import TideVizContainer from '../tides/TideVizContainer.js';
 import './DataViz.css';
 
-class DataViz extends Component {
+class dataVizGrid extends Component {
 
   beaconsForecastData() {
 
@@ -103,7 +103,7 @@ class DataViz extends Component {
           <h2 className='SD-tides'>Saint Diego Tides (dealwithit)</h2>
           <TideVizContainer />
         </div>
-        <div className='tides'>
+        <div className='tides forecast'>
           <Link to={`/suh/${this.props.spitBeaconsReport[0].spot_id}/`}>
             <h2 className='SD-tides'>BEACONS</h2>
           </Link>
@@ -114,4 +114,4 @@ class DataViz extends Component {
   }
 }
 
-export default DataViz;
+export default dataVizGrid;
