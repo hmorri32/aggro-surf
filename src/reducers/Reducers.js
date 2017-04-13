@@ -1,4 +1,4 @@
-export const tides = (state = {}, action) => {
+export const tides = (state = [], action) => {
   switch(action.type) {
     case 'GRAB_TIDES':
       return [...state, action.tides]
@@ -37,6 +37,15 @@ export const spitTamarackReport = (state = [], action) => {
 export const surfLineBeaconsReport = (state = {}, action) => {
   switch(action.type) {
     case 'SL_BEACONS_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
+export const surfLineBeaconsTide = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_BEACONS_TIDE':
       return action.report
     default:
       return state

@@ -33,6 +33,13 @@ export const surfLineBeaconsSurf = (report) => {
   }
 };
 
+export const surfLineBeaconsTide = (report) => {
+  return {
+    type: 'SL_BEACONS_TIDE',
+    report
+  }
+};
+
 export const surfLinePontoReport = (report) => {
   return {
     type: 'SL_PONTO_SURF',
