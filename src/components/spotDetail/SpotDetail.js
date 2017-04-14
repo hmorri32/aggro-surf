@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {WelcomeScreen} from '../welcomeScreen/WelcomeScreen';
 
 class SpotDetail extends Component {
   constructor() {
@@ -16,7 +17,6 @@ class SpotDetail extends Component {
       this.setState({
         forecast: json
       })
-      console.log(this.state.forecast);
     })
   }
 
@@ -25,14 +25,19 @@ class SpotDetail extends Component {
   }
 
   render() {
-    if(this.state.forecast) {
-    }
     return (
-      <div>
-        <Link to='/suh'>HELLOOOO</Link>
+      <div className='tides'>
+        <WelcomeScreen />
         <div id='render'>
           {this.renderForecast()}
         </div>
+        <iframe
+          width="100%"
+          height="450"
+          frameborder="0"
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCslKXSzLXNC1nEyVBDrkCdnxmOAcj0xRk
+            &q=${this.state.forecast.lat}, ${this.state.forecast.lon}`}>
+        </iframe>
       </div>
     )
   }
