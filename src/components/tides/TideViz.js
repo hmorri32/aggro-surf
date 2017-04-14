@@ -12,21 +12,10 @@ class TideViz extends Component {
       zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}}
     }
 
-    const mapped = tides.map((stuff) => {
-      return stuff.tide
-    })
-
-    const hourly = tides.map((tide) => {
-      return tide.hour
-    })
-
-    const mapped2 = surfLineBeaconsTide.map((stuff) => {
-      return stuff.height
-    })
-
-    const hourly2 = surfLineBeaconsTide.map((tide) => {
-      return tide.Localtime
-    })
+    const mapped  = tides.map(stuff => stuff.tide)
+    const hourly  = tides.map(tide => tide.hour)
+    const mapped2 = surfLineBeaconsTide.map(stuff => stuff.height)
+    const hourly2 = surfLineBeaconsTide.map(tide => tide.Localtime)
 
     const gridLineOptions = {
       legend: {

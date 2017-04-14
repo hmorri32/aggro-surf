@@ -49,7 +49,7 @@ export const fetchYungSurflineData = () => {
   fetch('http://api.surfline.com/v1/forecasts/4772')
   .then(response => response.json())
   .then((json) => {
-    let report = json.Surf.surf_max
+    let report = json
     store.dispatch(actions.surfLineBeaconsSurf(report))
   })
   fetch('http://api.surfline.com/v1/forecasts/4772')
@@ -60,7 +60,7 @@ export const fetchYungSurflineData = () => {
   fetch('http://api.surfline.com/v1/forecasts/4245')
   .then(response => response.json())
   .then((json) => {
-    store.dispatch(actions.surfLineBlacksSurf(json.Surf))
+    store.dispatch(actions.surfLineBlacksSurf(json))
   })
   fetch('http://api.surfline.com/v1/forecasts/4773')
   .then(response => response.json())

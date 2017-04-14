@@ -1,6 +1,6 @@
 .App-header {
   display         : flex;
-  height          : 450px;
+  height          : 150px;
   padding         : 20px;
   text-align      : center;
   flex-direction  : column;
@@ -13,7 +13,7 @@
 
 .aggro-surf-welcome {
   min-height  : 120px;
-  max-height  : 420px;
+  max-height  : 150px;
   font-family : Roboto;
 }
 

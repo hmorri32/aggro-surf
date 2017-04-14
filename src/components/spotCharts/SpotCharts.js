@@ -14,16 +14,9 @@ class SpotCharts extends Component {
   beaconsForecastChart() {
 
     const { spitBeaconsReport, surfLineBeaconsReport } = this.props;
-
-    let slBeaconsData  = this.flatten(surfLineBeaconsReport)
-    let spitBeaconData = spitBeaconsReport.map((stuff) => {
-      return stuff.size_ft
-    })
-
-    let spitBeaconYaxisLabel = spitBeaconsReport.map((stuff) => {
-      return stuff.hour
-    })
-
+    let slBeaconsData        = this.flatten(surfLineBeaconsReport.Surf.surf_max)
+    let spitBeaconData       = spitBeaconsReport.map(stuff => stuff.size_ft)
+    let spitBeaconYaxisLabel = spitBeaconsReport.map(stuff => stuff.hour)
 
     const data = {
       labels: spitBeaconYaxisLabel,
@@ -90,7 +83,7 @@ class SpotCharts extends Component {
 
     return (
       <div>
-        <Link to={`/suh/${spitBeaconsReport[0].spot_id}/`}>
+        <Link to={`/suh/${surfLineBeaconsReport.id}/`}>
           <h2 className='SD-tides'>{spitBeaconsReport[0].spot_name}</h2>
         </Link>
         <RC2 data={data} type='bar' options={expo, gridLineOptions} />
@@ -100,15 +93,10 @@ class SpotCharts extends Component {
 
   blacksForeCastChart() {
     const { spitBlacksReport, surfLineBlacksReport } = this.props;
-    let surfLineBlacksData = this.flatten(surfLineBlacksReport.surf_max)
 
-    let spitBlacksData     = spitBlacksReport.map((stuff) => {
-      return stuff.size_ft
-    })
-
-    let spitBlacksYaxisLabel = spitBlacksReport.map((stuff) => {
-      return stuff.hour
-    })
+    let surfLineBlacksData   = this.flatten(surfLineBlacksReport.Surf.surf_max)
+    let spitBlacksData       = spitBlacksReport.map(surf => surf.size_ft)
+    let spitBlacksYaxisLabel = spitBlacksReport.map(axis => axis.hour)
 
     const blacksData = {
       labels: spitBlacksYaxisLabel,
@@ -175,7 +163,7 @@ class SpotCharts extends Component {
     }
     return (
       <div>
-          <Link to={`/suh/${spitBlacksReport[0].spot_id}/`}>
+          <Link to={`/suh/${surfLineBlacksReport.id}/`}>
             <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
           </Link>
         <RC2 data={blacksData} type='bar' options={expo, gridLineOptions} />
