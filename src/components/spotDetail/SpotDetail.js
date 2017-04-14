@@ -22,7 +22,11 @@ class SpotDetail extends Component {
   }
 
   renderForecast(){
-    {!this.state.forecast ? null : <p>{document.getElementById('render').innerHTML = this.state.forecast.Analysis.short_term_forecast}</p>}
+    {!this.state.forecast ? null : this.myComponent()}
+  }
+
+  myComponent() {
+    return <div dangerouslySetInnerHTML={this.state.forecast.Analysis.short_term_forecast} />;
   }
 
   render() {
@@ -35,7 +39,7 @@ class SpotDetail extends Component {
         <iframe
           width="100%"
           height="450"
-          frameborder="0"
+          frameBorder="0"
           src={`https://www.google.com/maps/embed/v1/place?key=${yungKeys}
             &q=${this.state.forecast.lat}, ${this.state.forecast.lon}`}>
         </iframe>
