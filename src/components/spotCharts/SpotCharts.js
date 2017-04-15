@@ -83,7 +83,10 @@ class SpotCharts extends Component {
 
     return (
       <div>
-        <Link to={`/suh/${surfLineBeaconsReport.id}/`}>
+        <Link to={{
+          pathname: `/suh/${surfLineBeaconsReport.id}/`,
+          spitID: `${spitBeaconsReport[0].spot_id}`
+        }}>
           <h2 className='SD-tides'>{spitBeaconsReport[0].spot_name}</h2>
         </Link>
         <RC2 data={data} type='bar' options={expo, gridLineOptions} />
@@ -163,7 +166,10 @@ class SpotCharts extends Component {
     }
     return (
       <div>
-          <Link to={`/suh/${surfLineBlacksReport.id}/`}>
+          <Link to={{
+            pathname: `/suh/${surfLineBlacksReport.id}/`,
+            spitID: `${spitBlacksReport[0].spot_id}`
+          }}>
             <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
           </Link>
         <RC2 data={blacksData} type='bar' options={expo, gridLineOptions} />
@@ -171,11 +177,97 @@ class SpotCharts extends Component {
     )
   }
 
+  pontoForecastChart() {
+
+    const { spitPontoReport, surfLinePontoReport } = this.props;
+    let slPontoData         = this.flatten(surfLinePontoReport.Surf.surf_max)
+    let spitPontoData       = spitPontoReport.map(stuff => stuff.size_ft)
+    let spitPontoYaxisLabel = spitPontoReport.map(stuff => stuff.hour)
+
+    const pontoData = {
+      labels: spitPontoYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitPontoData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slPontoData,
+        }
+      ]
+    };
+
+    const gridLineOptions = {
+      legend: {
+        labels: {
+          fontColor: 'black'
+        }
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet',
+            fontColor: 'black'
+          },
+          ticks: {
+            beginAtZero: true,
+            fontColor: 'black'
+          },
+        }],
+        xAxes: [{
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            fontColor: 'black'
+          },
+        }]
+      },
+    }
+
+    const expo = {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet'
+          }
+        }]
+      }
+    }
+
+    return (
+      <div>
+          <Link to={{
+            pathname: `/suh/${surfLinePontoReport.id}/`,
+            spitID: `${spitPontoReport[0].spot_id}`
+          }}>
+            <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
+          </Link>
+          <RC2 data={pontoData} type='bar' options={expo, gridLineOptions} />
+      </div>
+    )
+  }
+
+
   render() {
     return (
       <div>
         {this.beaconsForecastChart()}
         {this.blacksForeCastChart()}
+        {this.pontoForecastChart()}
       </div>
     )
   }

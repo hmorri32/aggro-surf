@@ -1,13 +1,18 @@
 .frames {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  display         : flex;
+  padding         : 10px;
+  text-align      : center;
+  align-items     : center;
+  flex-direction  : column;
+  justify-content : center;
 }
 
 .googlin {
-  height: 1000px;
-  width: 1000px;
-  position: absolute;
+  position : absolute;
+  width    : 1000px;
+  height   : 1000px;
+}
+
+#render {
+  text-align : center;
 }

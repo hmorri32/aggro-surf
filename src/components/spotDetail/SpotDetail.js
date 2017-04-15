@@ -37,6 +37,8 @@ class SpotDetail extends Component {
       <div className='tides'>
         <WelcomeScreen />
         <div id='render'>
+          <h2>Report</h2>
+          {!this.state.forecast ? null : <p>{this.state.forecast.Analysis.reportdate }</p>}
           {this.MyComponent()}
         </div>
         <div className='frames'>

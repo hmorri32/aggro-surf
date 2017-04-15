@@ -2,6 +2,9 @@ import { store } from '../index.js';
 import * as actions from '../actions/actions';
 
 
+// TO FETCH : WINDANSEA, SCRIPPS, CARDIFF, SWAMIS, GRANDVIEW, OCEANSIDE
+
+
 export const fetchYungSpitCastData = () => {
   fetch('http://api.spitcast.com/api/spot/forecast/235/')
   .then(response => response.json())
@@ -65,14 +68,12 @@ export const fetchYungSurflineData = () => {
   fetch('http://api.surfline.com/v1/forecasts/4773')
   .then(response => response.json())
   .then((json) => {
-    let report = json.Surf
-    store.dispatch(actions.surfLinePontoReport(report))
+    store.dispatch(actions.surfLinePontoReport(json))
   })
   fetch('http://api.surfline.com/v1/forecasts/4242')
   .then(response => response.json())
   .then((json) => {
-    let report = json.Surf
-    store.dispatch(actions.surfLineTamarackReport(report))
+    store.dispatch(actions.surfLineTamarackReport(json))
   })
 }
 
