@@ -86,7 +86,6 @@ class TideViz extends Component {
 
     return (
       <div className='tide-charts'>
-        <RC2 data={data} type='line' options={gridLineOptions}/>
         <RC2 data={data2} type='line' options={gridLineOptions, zoomZoom}/>
       </div>
     )

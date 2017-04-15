@@ -60,7 +60,6 @@ class SpotCharts extends Component {
     let spitBeaconData       = spitBeaconsReport.map(stuff => stuff.size_ft)
     let spitBeaconYaxisLabel = spitBeaconsReport.map(stuff => stuff.hour)
     let mapped               = tides.map(stuff => stuff.tide)
-    let hourly               = tides.map(tide => tide.hour)
 
     const data = {
       labels: spitBeaconYaxisLabel,
@@ -119,7 +118,6 @@ class SpotCharts extends Component {
     let spitBlacksData       = spitBlacksReport.map(surf => surf.size_ft)
     let spitBlacksYaxisLabel = spitBlacksReport.map(axis => axis.hour)
     let mapped               = tides.map(stuff => stuff.tide)
-    let hourly               = tides.map(tide => tide.hour)
 
     const blacksData = {
       labels: spitBlacksYaxisLabel,
@@ -178,7 +176,6 @@ class SpotCharts extends Component {
     let spitPontoData       = spitPontoReport.map(stuff => stuff.size_ft)
     let spitPontoYaxisLabel = spitPontoReport.map(stuff => stuff.hour)
     let mapped              = tides.map(stuff => stuff.tide)
-    let hourly              = tides.map(tide => tide.hour)
 
     const pontoData = {
       labels: spitPontoYaxisLabel,
@@ -237,7 +234,6 @@ class SpotCharts extends Component {
     let spitWindanseaData       = spitWindanseaReport.map(stuff => stuff.size_ft)
     let spitWindanseaYaxisLabel = spitWindanseaReport.map(stuff => stuff.hour)
     let mapped                  = tides.map(stuff => stuff.tide)
-    let hourly                  = tides.map(tide => tide.hour)
 
     const windanseaData = {
       labels: spitWindanseaYaxisLabel,
@@ -296,7 +292,6 @@ class SpotCharts extends Component {
     let spitScrippsData       = spitScrippsReport.map(stuff => stuff.size_ft)
     let spitScrippsYAxisLabel = spitScrippsReport.map(stuff => stuff.hour)
     let mapped                = tides.map(stuff => stuff.tide)
-    let hourly                = tides.map(tide => tide.hour)
 
     const scrippsData = {
       labels: spitScrippsYAxisLabel,
