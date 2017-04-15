@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link }             from 'react-router-dom';
 import { WelcomeScreen }    from '../welcomeScreen/WelcomeScreen';
 import { yungKeys }         from '../../helpers/keys.js';
-import TideVizContainer     from '../tides/TideVizContainer.js';
+import TideVizContainer     from '../spotDetailCharts/TideVizContainer.js';
 
 import './SpotDetail.css'
 
@@ -38,7 +38,6 @@ class SpotDetail extends Component {
   render() {
     return (
       <div>
-
         <WelcomeScreen />
         <div className='tides padding'>
           <div id='render'>

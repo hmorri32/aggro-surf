@@ -2,11 +2,11 @@
   display         : flex;
   margin          : auto;
   padding         : 10px;
+  padding-top     : 200px;
   text-align      : center;
   align-items     : center;
   flex-wrap       : wrap;
   justify-content : space-around;
-  padding-top: 200px;
 }
 
 .vidz {
