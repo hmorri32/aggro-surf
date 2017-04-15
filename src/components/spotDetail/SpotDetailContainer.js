@@ -1,5 +1,5 @@
-import SpotDetail from './SpotDetail';
 import { connect } from 'react-redux';
+import SpotDetail  from './SpotDetail';
 
 const mapStateToProps = (state) => {
   return state

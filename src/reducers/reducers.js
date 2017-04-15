@@ -16,6 +16,24 @@ export const spitBeaconsReport = (state = [], action) => {
   }
 }
 
+export const surfLineBeaconsReport = (state = [], action) => {
+  switch(action.type) {
+    case 'SL_BEACONS_SURF':
+    return  action.report
+    default:
+    return state
+  }
+}
+
+export const surfLineBeaconsTide = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_BEACONS_TIDE':
+    return action.report
+    default:
+    return state
+  }
+}
+
 export const spitBlacksReport = (state = [], action) => {
   switch(action.type) {
     case 'BLACKS_REPORT':
@@ -25,10 +43,28 @@ export const spitBlacksReport = (state = [], action) => {
   }
 }
 
+export const surfLineBlacksReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_BLACKS_SURF':
+    return action.report
+    default:
+    return state
+  }
+}
+
 export const spitPontoReport = (state = [], action) => {
   switch(action.type) {
     case 'PONTO_SURF':
     return [...state, action.report]
+    default:
+    return state
+  }
+}
+
+export const surfLinePontoReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_PONTO_SURF':
+    return action.report
     default:
     return state
   }
@@ -43,42 +79,6 @@ export const spitTamarackReport = (state = [], action) => {
   }
 }
 
-export const surfLineBeaconsReport = (state = [], action) => {
-  switch(action.type) {
-    case 'SL_BEACONS_SURF':
-      return  action.report
-    default:
-      return state
-  }
-}
-
-export const surfLineBeaconsTide = (state = {}, action) => {
-  switch(action.type) {
-    case 'SL_BEACONS_TIDE':
-      return action.report
-    default:
-      return state
-  }
-}
-
-export const surfLineBlacksReport = (state = {}, action) => {
-  switch(action.type) {
-    case 'SL_BLACKS_SURF':
-      return action.report
-    default:
-      return state
-  }
-}
-
-export const surfLinePontoReport = (state = {}, action) => {
-  switch(action.type) {
-    case 'SL_PONTO_SURF':
-    return action.report
-    default:
-    return state
-  }
-}
-
 export const surfLineTamarackReport = (state = {}, action) => {
   switch(action.type) {
     case 'SL_TAMARACK_SURF':
@@ -88,5 +88,22 @@ export const surfLineTamarackReport = (state = {}, action) => {
   }
 }
 
+export const spitWindanseaReport = (state=[], action) => {
+  switch(action.type) {
+    case 'WINDANSEA_SURF':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}
+
+export const surfLineWindanseaReport = (state={}, action) => {
+  switch(action.type) {
+    case 'SL_WINDANSEA_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
 
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route }  from 'react-router-dom';
+import { Route }            from 'react-router-dom';
 
 import { fetchYungSpitCastData, fetchYungSurflineData } from '../../helpers/fetch.js';
 import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
 import dataVizContainer    from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
-import MontageLife from '../montageLife/MontageLife'
+import MontageLife         from '../montageLife/MontageLife'
 import './App.css';
 
 class App extends Component {

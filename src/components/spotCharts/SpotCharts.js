@@ -11,6 +11,48 @@ class SpotCharts extends Component {
     }, []);
   }
 
+  gridLineOptions() {
+    return {
+      legend: {
+        labels: {
+          fontColor: 'black'
+        }
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet',
+            fontColor: 'black'
+          },
+          ticks: {
+            beginAtZero: true,
+            fontColor: 'black'
+          },
+        }],
+        xAxes: [{
+          gridLines: {
+            color: 'rgba(255,255,255, 0.5)'
+          },
+          ticks: {
+            fontColor: 'black'
+          }
+        }]
+      }
+    }
+
+    const expo = {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'feet'
+          }
+        }]
+      }
+    }
+  }
+
   beaconsForecastChart() {
 
     const { spitBeaconsReport, surfLineBeaconsReport } = this.props;
@@ -41,45 +83,6 @@ class SpotCharts extends Component {
         }
       ]
     };
-    const gridLineOptions = {
-      legend: {
-        labels: {
-          fontColor: 'black'
-        }
-      },
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet',
-            fontColor: 'black'
-          },
-          ticks: {
-            beginAtZero: true,
-            fontColor: 'black'
-          },
-        }],
-        xAxes: [{
-          gridLines: {
-            color: 'rgba(255,255,255, 0.5)'
-          },
-          ticks: {
-            fontColor: 'black'
-          },
-        }]
-      },
-    }
-
-    const expo = {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet'
-          }
-        }]
-      }
-    }
 
     return (
       <div>
@@ -89,7 +92,7 @@ class SpotCharts extends Component {
         }}>
           <h2 className='SD-tides'>{spitBeaconsReport[0].spot_name}</h2>
         </Link>
-        <RC2 data={data} type='bar' options={expo, gridLineOptions} />
+        <RC2 data={data} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -125,45 +128,6 @@ class SpotCharts extends Component {
       ]
     };
 
-    const gridLineOptions = {
-      legend: {
-        labels: {
-          fontColor: 'black'
-        }
-      },
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet',
-            fontColor: 'black'
-          },
-          ticks: {
-            beginAtZero: true,
-            fontColor: 'black'
-          },
-        }],
-        xAxes: [{
-          gridLines: {
-            color: 'rgba(255,255,255, 0.5)'
-          },
-          ticks: {
-            fontColor: 'black'
-          },
-        }]
-      },
-    }
-
-    const expo = {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet'
-          }
-        }]
-      }
-    }
     return (
       <div>
           <Link to={{
@@ -172,7 +136,7 @@ class SpotCharts extends Component {
           }}>
             <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
           </Link>
-        <RC2 data={blacksData} type='bar' options={expo, gridLineOptions} />
+        <RC2 data={blacksData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -208,46 +172,6 @@ class SpotCharts extends Component {
       ]
     };
 
-    const gridLineOptions = {
-      legend: {
-        labels: {
-          fontColor: 'black'
-        }
-      },
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet',
-            fontColor: 'black'
-          },
-          ticks: {
-            beginAtZero: true,
-            fontColor: 'black'
-          },
-        }],
-        xAxes: [{
-          gridLines: {
-            color: 'rgba(255,255,255, 0.5)'
-          },
-          ticks: {
-            fontColor: 'black'
-          },
-        }]
-      },
-    }
-
-    const expo = {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet'
-          }
-        }]
-      }
-    }
-
     return (
       <div>
           <Link to={{
@@ -256,7 +180,53 @@ class SpotCharts extends Component {
           }}>
             <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
           </Link>
-          <RC2 data={pontoData} type='bar' options={expo, gridLineOptions} />
+          <RC2 data={pontoData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
+  windanseaForecastChart() {
+
+    const { spitWindanseaReport, surfLineWindanseaReport } = this.props;
+    let slWindanseaData         = this.flatten(surfLineWindanseaReport.Surf.surf_max)
+    let spitWindanseaData       = spitWindanseaReport.map(stuff => stuff.size_ft)
+    let spitWindanseaYaxisLabel = spitWindanseaReport.map(stuff => stuff.hour)
+
+    const windanseaData = {
+      labels: spitWindanseaYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitWindanseaData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slWindanseaData,
+        }
+      ]
+    };
+
+
+
+    return (
+      <div>
+        <Link to={{
+          pathname: `/suh/${surfLineWindanseaReport.id}/`,
+          spitID: `${spitWindanseaReport[0].spot_id}`
+        }}>
+          <h2 className='SD-tides'>{spitWindanseaReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={windanseaData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -268,6 +238,7 @@ class SpotCharts extends Component {
         {this.beaconsForecastChart()}
         {this.blacksForeCastChart()}
         {this.pontoForecastChart()}
+        {this.windanseaForecastChart()}
       </div>
     )
   }
