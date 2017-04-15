@@ -39,9 +39,9 @@ class SpotCharts extends Component {
           }
         }]
       }
-    }
+    },
 
-    const expo = {
+    {
       scales: {
         yAxes: [{
           scaleLabel: {
@@ -59,6 +59,10 @@ class SpotCharts extends Component {
     let slBeaconsData        = this.flatten(surfLineBeaconsReport.Surf.surf_max)
     let spitBeaconData       = spitBeaconsReport.map(stuff => stuff.size_ft)
     let spitBeaconYaxisLabel = spitBeaconsReport.map(stuff => stuff.hour)
+
+    const { tides, surfLineBeaconsTide } = this.props
+    const mapped  = tides.map(stuff => stuff.tide)
+    const hourly  = tides.map(tide => tide.hour)
 
     const data = {
       labels: spitBeaconYaxisLabel,
@@ -80,6 +84,19 @@ class SpotCharts extends Component {
           hoverBackgroundColor: '#52B3D9',
           hoverBorderColor: '#C5EFF7',
           data: slBeaconsData,
+        },
+        {
+          label: 'SD County Daily Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
         }
       ]
     }
@@ -229,12 +246,57 @@ class SpotCharts extends Component {
     )
   }
 
+  scrippsForecastChart() {
+
+    const { spitScrippsReport, surfLineScrippsReport } = this.props;
+    let slScrippsData           = this.flatten(surfLineScrippsReport.Surf.surf_max)
+    let spitScrippsData         = spitScrippsReport.map(stuff => stuff.size_ft)
+    let spitScrippsYAxisLabel = spitScrippsReport.map(stuff => stuff.hour)
+
+    const scrippsData = {
+      labels: spitScrippsYAxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitScrippsData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slScrippsData,
+        }
+      ]
+    }
+
+    return (
+      <div>
+        <Link to={{
+          pathname: `/suh/${surfLineScrippsReport.id}/`,
+          spitID: `${spitScrippsReport[0].spot_id}`
+        }}>
+          <h2 className='SD-tides'>{spitScrippsReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={scrippsData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
         {this.beaconsForecastChart()}
         {this.blacksForeCastChart()}
         {this.pontoForecastChart()}
+        {this.scrippsForecastChart()}
         {this.windanseaForecastChart()}
       </div>
     )
