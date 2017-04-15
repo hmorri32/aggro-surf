@@ -11,6 +11,9 @@ import hipsters from './assets/aggro-pix/hipsters.jpg'
 import jesussurfs from './assets/aggro-pix/jesussurfs.jpg'
 import palms from './assets/aggro-pix/palms.jpg'
 import snapper from './assets/aggro-pix/snapper.jpg'
+import pipe from './assets/aggro-pix/pipe.jpg'
+import ship from './assets/aggro-pix/ship.jpg'
+import tubez from './assets/aggro-pix/tubez.jpg'
 
 const MontageLife = () => {
   return (
@@ -58,6 +61,9 @@ const MontageLife = () => {
       <img src={palms} className='vidz'/>
       <img src={jesussurfs} className='vidz'/>
       <img src={snapper} className='vidz'/>
+      <img src={pipe} className='vidz'/>
+      <img src={ship} className='vidz'/>
+      <img src={tubez} className='vidz'/>
     </div>
   )
 }
