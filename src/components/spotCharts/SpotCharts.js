@@ -160,7 +160,8 @@ class SpotCharts extends Component {
       <div>
           <Link to={{
             pathname: `/suh/${surfLineBlacksReport.id}/`,
-            spitData: this.props.spitBlacksReport
+            spitData: this.props.spitBlacksReport,
+            spitID: spitBlacksReport[0].spot_id
           }}>
             <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
           </Link>
