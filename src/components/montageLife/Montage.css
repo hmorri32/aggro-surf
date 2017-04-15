@@ -6,6 +6,7 @@
   align-items     : center;
   flex-wrap       : wrap;
   justify-content : space-around;
+  padding-top: 200px;
 }
 
 .vidz {
