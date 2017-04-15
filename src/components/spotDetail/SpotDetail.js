@@ -35,6 +35,11 @@ class SpotDetail extends Component {
     return <div dangerouslySetInnerHTML={this.createMarkup()} />;
   }
 
+  superCoolGraphs() {
+    const { spitData } = this.props.router.location
+    console.log(spitData);
+  }
+
   render() {
     return (
       <div>
@@ -45,6 +50,7 @@ class SpotDetail extends Component {
             {!this.state.forecast ? null : <p>{this.state.forecast.Analysis.reportdate }</p>}
             {this.MyComponent()}
             <TideVizContainer />
+            {this.superCoolGraphs()}
           </div>
           <div className='frames'>
             <iframe

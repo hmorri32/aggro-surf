@@ -102,7 +102,7 @@ class SpotCharts extends Component {
       <div>
         <Link to={{
           pathname: `/suh/${surfLineBeaconsReport.id}/`,
-          spitID: `${spitBeaconsReport[0].spot_id}`
+          spitData: this.props.spitBeaconsReport
         }}>
           <h2 className='SD-tides'>{spitBeaconsReport[0].spot_name}</h2>
         </Link>
@@ -160,7 +160,7 @@ class SpotCharts extends Component {
       <div>
           <Link to={{
             pathname: `/suh/${surfLineBlacksReport.id}/`,
-            spitID: `${spitBlacksReport[0].spot_id}`
+            spitData: this.props.spitBlacksReport
           }}>
             <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
           </Link>
@@ -218,7 +218,7 @@ class SpotCharts extends Component {
       <div>
           <Link to={{
             pathname: `/suh/${surfLinePontoReport.id}/`,
-            spitID: `${spitPontoReport[0].spot_id}`
+            spitData: this.props.spitPontoReport
           }}>
             <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
           </Link>
@@ -276,7 +276,7 @@ class SpotCharts extends Component {
       <div>
         <Link to={{
           pathname: `/suh/${surfLineWindanseaReport.id}/`,
-          spitID: `${spitWindanseaReport[0].spot_id}`
+          spitData: this.props.spitWindanseaReport
         }}>
           <h2 className='SD-tides'>{spitWindanseaReport[0].spot_name}</h2>
         </Link>
@@ -334,7 +334,7 @@ class SpotCharts extends Component {
       <div>
         <Link to={{
           pathname: `/suh/${surfLineScrippsReport.id}/`,
-          spitID: `${spitScrippsReport[0].spot_id}`
+          spitData: this.props.spitScrippsReport
         }}>
           <h2 className='SD-tides'>{spitScrippsReport[0].spot_name}</h2>
         </Link>
