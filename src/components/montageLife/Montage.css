@@ -1,13 +1,13 @@
 .montage {
-  display     : flex;
-  justify-content: center;
-  margin      : auto;
-  padding     : 10px;
-  text-align  : center;
-  align-items : center;
-  flex-wrap: wrap;
+  display         : flex;
+  margin          : auto;
+  padding         : 10px;
+  text-align      : center;
+  align-items     : center;
+  flex-wrap       : wrap;
+  justify-content : center;
 }
 
 .vidz {
-  margin: 10px;
+  margin : 10px;
 }
