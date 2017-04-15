@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import {WelcomeScreen} from '../welcomeScreen/WelcomeScreen';
-import {yungKeys} from '../../helpers/keys.js';
+import { Link }             from 'react-router-dom';
+import { WelcomeScreen }    from '../welcomeScreen/WelcomeScreen';
+import { yungKeys }         from '../../helpers/keys.js';
 import './SpotDetail.css'
 
 class SpotDetail extends Component {

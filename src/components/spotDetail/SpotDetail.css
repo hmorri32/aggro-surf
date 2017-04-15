@@ -4,3 +4,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+.googlin {
+  height: 1000px;
+  width: 1000px;
+  position: absolute;
+}
