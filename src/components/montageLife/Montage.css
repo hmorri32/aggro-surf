@@ -5,4 +5,9 @@
   padding     : 10px;
   text-align  : center;
   align-items : center;
+  flex-wrap: wrap;
+}
+
+.vidz {
+  margin: 10px;
 }
