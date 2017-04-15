@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { tides, spitBeaconsReport, spitBlacksReport, spitTamarackReport, surfLineBeaconsReport, surfLineBlacksReport, surfLineBeaconsTide, spitPontoReport, surfLinePontoReport, surfLineTamarackReport, spitWindanseaReport, surfLineWindanseaReport } from './reducers'
+import { tides, spitBeaconsReport, spitBlacksReport, spitTamarackReport, surfLineBeaconsReport, surfLineBlacksReport, surfLineBeaconsTide, spitPontoReport, surfLinePontoReport, surfLineTamarackReport, spitWindanseaReport, surfLineWindanseaReport, spitScrippsReport, surfLineScrippsReport } from './reducers'
 import { routerReducer } from 'react-router-redux';
 
 export const root = combineReducers({
@@ -15,5 +15,7 @@ export const root = combineReducers({
   surfLineTamarackReport,
   spitWindanseaReport,
   surfLineWindanseaReport,
+  spitScrippsReport,
+  surfLineScrippsReport,
   router: routerReducer
 })

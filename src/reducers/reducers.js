@@ -70,6 +70,24 @@ export const surfLinePontoReport = (state = {}, action) => {
   }
 }
 
+export const spitScrippsReport = (state = [], action) => {
+  switch(action.type) {
+    case 'SCRIPPS_SURF':
+    return [...state, action.report]
+    default:
+    return state
+  }
+}
+
+export const surfLineScrippsReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_SCRIPPS_SURF':
+    return action.report
+    default:
+    return state
+  }
+}
+
 export const spitTamarackReport = (state = [], action) => {
   switch(action.type) {
     case 'TAMARACK_SURF':

@@ -1,4 +1,4 @@
-// FETCH : WINDANSEA spit 227 surfline 4248, SCRIPPS spit 228 surflin 4246, CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
+// FETCH SCRIPPS spit 228 surfline 4246, CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
 
 
@@ -56,6 +56,20 @@ export const spitCastPontoSurf = (report) => {
 export const surfLinePontoSurf = (report) => {
   return {
     type: 'SL_PONTO_SURF',
+    report
+  }
+};
+
+export const spitCastScrippsSurf = (report) => {
+  return {
+    type: 'SCRIPPS_SURF',
+    report
+  }
+};
+
+export const surfLineScrippsSurf = (report) => {
+  return {
+    type: 'SL_SCRIPPS_SURF',
     report
   }
 };

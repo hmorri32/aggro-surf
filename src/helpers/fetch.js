@@ -17,11 +17,11 @@ export const fetchYungSpitCastData = () => {
       return report
     })
   })
-  fetch('http://api.spitcast.com/api/spot/forecast/237/')
+  fetch('http://api.spitcast.com/api/spot/forecast/229/')
   .then(response => response.json())
   .then((json) => {
     json.map((report) => {
-      store.dispatch(actions.spitCastTamarackSurf(report))
+      store.dispatch(actions.spitCastBlacksSurf(report))
       return report
     })
   })
@@ -33,11 +33,19 @@ export const fetchYungSpitCastData = () => {
       return report
     })
   })
-  fetch('http://api.spitcast.com/api/spot/forecast/229/')
+  fetch('http://api.spitcast.com/api/spot/forecast/228/')
   .then(response => response.json())
   .then((json) => {
     json.map((report) => {
-      store.dispatch(actions.spitCastBlacksSurf(report))
+      store.dispatch(actions.spitCastScrippsSurf(report))
+      return report
+    })
+  })
+  fetch('http://api.spitcast.com/api/spot/forecast/237/')
+  .then(response => response.json())
+  .then((json) => {
+    json.map((report) => {
+      store.dispatch(actions.spitCastTamarackSurf(report))
       return report
     })
   })
@@ -80,6 +88,11 @@ export const fetchYungSurflineData = () => {
   .then(response => response.json())
   .then((json) => {
     store.dispatch(actions.surfLinePontoSurf(json))
+  })
+  fetch('http://api.surfline.com/v1/forecasts/4246')
+  .then(response => response.json())
+  .then((json) => {
+    store.dispatch(actions.surfLineScrippsSurf(json))
   })
   fetch('http://api.surfline.com/v1/forecasts/4242')
   .then(response => response.json())
