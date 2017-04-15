@@ -1,8 +1,9 @@
 import { store }    from '../index.js';
 import * as actions from '../actions/actions';
 
-// FETCH : WINDANSEA spit 227, SCRIPPS spit 228, CARDIFF spit 232, SWAMIS spit 234, GRANDVIEW 400, OCEANSIDE spit 238 surfline 4238
-//
+// FETCH : WINDANSEA spit 227 surfline 4248, SCRIPPS spit 228 surflin 4246, CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
+
+
 // you have that yung id in spot detail now.
 // create overlay swell and tide charts.
 // dassitmane
@@ -40,6 +41,14 @@ export const fetchYungSpitCastData = () => {
       return report
     })
   })
+  fetch('http://api.spitcast.com/api/spot/forecast/227/')
+  .then(response => response.json())
+  .then((json) => {
+    json.map((report) => {
+      store.dispatch(actions.spitCastWindAnSeaSurf(report))
+      return report
+    })
+  })
   fetch('http://api.spitcast.com/api/county/tide/san-diego/')
   .then(response => response.json())
   .then((json) => {
@@ -70,12 +79,17 @@ export const fetchYungSurflineData = () => {
   fetch('http://api.surfline.com/v1/forecasts/4773')
   .then(response => response.json())
   .then((json) => {
-    store.dispatch(actions.surfLinePontoReport(json))
+    store.dispatch(actions.surfLinePontoSurf(json))
   })
   fetch('http://api.surfline.com/v1/forecasts/4242')
   .then(response => response.json())
   .then((json) => {
-    store.dispatch(actions.surfLineTamarackReport(json))
+    store.dispatch(actions.surfLineTamarackSurf(json))
+  })
+  fetch('http://api.surfline.com/v1/forecasts/4248')
+  .then(response => response.json())
+  .then((json) => {
+    store.dispatch(actions.surfLineWindAnSeaSurf(json))
   })
 }
 
