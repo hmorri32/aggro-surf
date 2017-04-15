@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import RC2 from 'react-chartjs2';
+import { Link }             from 'react-router-dom';
+import RC2                  from 'react-chartjs2';
 
 
 class SpotCharts extends Component {
@@ -93,7 +93,7 @@ class SpotCharts extends Component {
       </div>
     )
   }
- 
+
   blacksForeCastChart() {
     const { spitBlacksReport, surfLineBlacksReport } = this.props;
 

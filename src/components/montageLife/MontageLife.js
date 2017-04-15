@@ -3,7 +3,6 @@ import hangfive          from './assets/aggro-pix/hangfive.jpg'
 import abstractblueblack from './assets/aggro-pix/abstractblueblack.jpg'
 import abstractoil       from './assets/aggro-pix/abstractoil.jpg'
 import boardslidebrah    from './assets/aggro-pix/boardslidebrah.jpg'
-import breakwall         from './assets/aggro-pix/breakwall.jpg'
 import chic              from './assets/aggro-pix/chic.jpg'
 import dusk              from './assets/aggro-pix/dusk.jpg'
 import hipsters          from './assets/aggro-pix/hipsters.jpg'
@@ -42,10 +41,10 @@ const MontageLife = () => {
         frameBorder="0"
         allowFullScreen>
       </iframe>
-      <img src={boardslidebrah} className='vidz'/>
-      <img src={chic} className='vidz'/>
-      <img src={abstractoil} className='vidz' />
-      <img src={dusk} className='vidz' />
+      <img alt='' src={boardslidebrah} className='vidz'/>
+      <img alt='' src={chic} className='vidz'/>
+      <img alt='' src={abstractoil} className='vidz' />
+      <img alt='' src={dusk} className='vidz' />
       <iframe
         className='vidz'
         src="https://player.vimeo.com/video/151367434?color=ffffff&byline=0&portrait=0"
@@ -54,9 +53,9 @@ const MontageLife = () => {
         frameBorder="0"
         allowFullScreen>
       </iframe>
-      <img src={hangfive} className='vidz'/>
-      <img src={abstractblueblack} className='vidz' />
-      <img src={hipsters} className='vidz'/>
+      <img alt='' src={hangfive} className='vidz'/>
+      <img alt='' src={abstractblueblack} className='vidz' />
+      <img alt='' src={hipsters} className='vidz'/>
       <iframe
         className='vidz'
         src="https://player.vimeo.com/video/151743858?color=ffffff&byline=0&portrait=0"
@@ -65,12 +64,12 @@ const MontageLife = () => {
         frameBorder="0"
         allowFullScreen>
       </iframe>
-      <img src={palms} className='vidz'/>
-      <img src={jesussurfs} className='vidz'/>
-      <img src={snapper} className='vidz'/>
-      <img src={pipe} className='vidz'/>
-      <img src={ship} className='vidz'/>
-      <img src={tubez} className='vidz'/>
+      <img alt='' src={palms} className='vidz'/>
+      <img alt='' src={jesussurfs} className='vidz'/>
+      <img alt='' src={snapper} className='vidz'/>
+      <img alt='' src={pipe} className='vidz'/>
+      <img alt='' src={ship} className='vidz'/>
+      <img alt='' src={tubez} className='vidz'/>
     </div>
   )
 }

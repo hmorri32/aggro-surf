@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link }             from 'react-router-dom';
+// import { Link }             from 'react-router-dom';
 import { WelcomeScreen }    from '../welcomeScreen/WelcomeScreen';
 import { yungKeys }         from '../../helpers/keys.js';
+import TideVizContainer     from '../tides/TideVizContainer.js';
+
 import './SpotDetail.css'
 
 class SpotDetail extends Component {
@@ -40,6 +42,7 @@ class SpotDetail extends Component {
           <h2>Report</h2>
           {!this.state.forecast ? null : <p>{this.state.forecast.Analysis.reportdate }</p>}
           {this.MyComponent()}
+          <TideVizContainer />
         </div>
         <div className='frames'>
           <iframe
