@@ -93,7 +93,7 @@ class SpotCharts extends Component {
       </div>
     )
   }
-
+ 
   blacksForeCastChart() {
     const { spitBlacksReport, surfLineBlacksReport } = this.props;
 
