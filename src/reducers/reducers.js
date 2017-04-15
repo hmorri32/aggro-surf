@@ -124,4 +124,3 @@ export const surfLineWindanseaReport = (state={}, action) => {
   }
 }
 
-

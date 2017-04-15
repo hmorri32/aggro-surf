@@ -10,7 +10,8 @@ class SpotDetail extends Component {
   constructor() {
     super()
     this.state ={
-      forecast: ''
+      forecast: '',
+      spitWeek: '',
     }
   }
 
@@ -21,6 +22,17 @@ class SpotDetail extends Component {
     .then((json) => {
       this.setState({
         forecast: json
+      })
+    })
+    this.getWeeklySpitData()
+  }
+
+  getWeeklySpitData() {
+    fetch(`http://api.spitcast.com/api/spot/forecast/${this.props.router.location.spitID}/?dcat=week`)
+    .then(response => response.json())
+    .then((json) => {
+      this.setState({
+        spitWeek: json
       })
     })
   }
@@ -37,7 +49,7 @@ class SpotDetail extends Component {
 
   superCoolGraphs() {
     const { spitData } = this.props.router.location
-    console.log(spitData);
+
   }
 
   render() {
@@ -50,7 +62,7 @@ class SpotDetail extends Component {
             {!this.state.forecast ? null : <p>{this.state.forecast.Analysis.reportdate }</p>}
             {this.MyComponent()}
             <TideVizContainer />
-            {this.superCoolGraphs()}
+            {/* {this.superCoolGraphs()} */}
           </div>
           <div className='frames'>
             <iframe
