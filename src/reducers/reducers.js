@@ -88,7 +88,7 @@ export const surfLineTamarackReport = (state = {}, action) => {
   }
 }
 
-export const spitWindAnSeaReport = (state=[], action) => {
+export const spitWindanseaReport = (state=[], action) => {
   switch(action.type) {
     case 'WINDANSEA_SURF':
       return [...state, action.report]
@@ -97,7 +97,7 @@ export const spitWindAnSeaReport = (state=[], action) => {
   }
 }
 
-export const surfLineWindAnSeaReport = (state={}, action) => {
+export const surfLineWindanseaReport = (state={}, action) => {
   switch(action.type) {
     case 'SL_WINDANSEA_SURF':
       return action.report

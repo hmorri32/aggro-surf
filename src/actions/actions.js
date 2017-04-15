@@ -74,14 +74,14 @@ export const surfLineTamarackSurf = (report) => {
   }
 };
 
-export const spitCastWindAnSeaSurf = (report) => {
+export const spitCastWindanseaSurf = (report) => {
   return {
     type: 'WINDANSEA_SURF',
     report
   }
 };
 
-export const surfLineWindAnSeaSurf = (report) => {
+export const surfLineWindanseaSurf = (report) => {
   return {
     type: 'SL_WINDANSEA_SURF',
     report
