@@ -41,12 +41,14 @@ class SpotDetail extends Component {
         </div>
         <div className='frames'>
           <iframe
+            className='frames'
             width="100%"
             height="650"
             frameBorder="0"
             src={`https://www.google.com/maps/embed/v1/place?key=${yungKeys}&q=${this.state.forecast.lat}, ${this.state.forecast.lon}&maptype=satellite`}>
           </iframe>
           <iframe
+            className='frames'
             width="100%"
             height="650"  src={`https://embed.windytv.com/embed2.html?lat=${this.state.forecast.lat}&lon=${this.state.forecast.lon}&zoom=13&level=surface&overlay=wind&menu=&message=&marker=&forecast=12&calendar=now&location=coordinates&type=map&actualGrid=&metricWind=kt&metricTemp=%C2%B0C`}
             frameBorder="0">
