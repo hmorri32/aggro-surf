@@ -244,7 +244,10 @@ class SpotCharts extends Component {
 
     return (
       <div>
-          <Link to={`/suh/${surfLinePontoReport.id}/`}>
+          <Link to={{
+            pathname: `/suh/${surfLinePontoReport.id}/`,
+            spitID: `${spitPontoReport[0].spot_id}`
+          }}>
             <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
           </Link>
           <RC2 data={pontoData} type='bar' options={expo, gridLineOptions} />
