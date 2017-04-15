@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const SVGguy = () => {
   return (
     <svg className='aggro-surf-welcome' viewBox="0 0 100 20">
-      {/* thanks! : https://codepen.io/web-tiki/details/YNKMpB */}
       <defs>
         <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
           <stop offset="5%" stopColor="#326384"/>
@@ -45,14 +44,13 @@ const SVGguy = () => {
   )
 }
 
-
 export const WelcomeScreen = () => {
   return (
     <div className="App-header">
       <Link to='/suh'>
         <SVGguy />
       </Link>
-      <h2 className="surf-sauce-h2">ULTRA CHIC ARTISINAL SURF</h2>
+      <h2 className="surf-sauce-h2">ULTRA CHIC ARTISANAL SURF</h2>
     </div>
   )
 }

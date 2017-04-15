@@ -10,7 +10,7 @@ class dataVizGrid extends Component {
       <div>
         <div className='tides'>
           <h2 className='SD-tides'>Saint Diego Tides (dealwithit)</h2>
-          <TideVizContainer />
+          {/* <TideVizContainer /> */}
         </div>
         <div className='tides forecast'>
           <SpotChartsContainer />

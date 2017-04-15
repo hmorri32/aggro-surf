@@ -55,14 +55,12 @@ class SpotCharts extends Component {
 
   beaconsForecastChart() {
 
-    const { spitBeaconsReport, surfLineBeaconsReport } = this.props;
+    const { spitBeaconsReport, surfLineBeaconsReport, tides } = this.props;
     let slBeaconsData        = this.flatten(surfLineBeaconsReport.Surf.surf_max)
     let spitBeaconData       = spitBeaconsReport.map(stuff => stuff.size_ft)
     let spitBeaconYaxisLabel = spitBeaconsReport.map(stuff => stuff.hour)
-
-    const { tides, surfLineBeaconsTide } = this.props
-    const mapped  = tides.map(stuff => stuff.tide)
-    const hourly  = tides.map(tide => tide.hour)
+    let mapped               = tides.map(stuff => stuff.tide)
+    let hourly               = tides.map(tide => tide.hour)
 
     const data = {
       labels: spitBeaconYaxisLabel,
@@ -86,7 +84,7 @@ class SpotCharts extends Component {
           data: slBeaconsData,
         },
         {
-          label: 'SD County Daily Tides',
+          label: 'SD County Tides',
           type: 'line',
           fill: false,
           borderColor: 'rgb(34, 49, 63)',
@@ -115,11 +113,13 @@ class SpotCharts extends Component {
   }
 
   blacksForeCastChart() {
-    const { spitBlacksReport, surfLineBlacksReport } = this.props;
+    const { spitBlacksReport, surfLineBlacksReport, tides } = this.props;
 
     let surfLineBlacksData   = this.flatten(surfLineBlacksReport.Surf.surf_max)
     let spitBlacksData       = spitBlacksReport.map(surf => surf.size_ft)
     let spitBlacksYaxisLabel = spitBlacksReport.map(axis => axis.hour)
+    let mapped               = tides.map(stuff => stuff.tide)
+    let hourly               = tides.map(tide => tide.hour)
 
     const blacksData = {
       labels: spitBlacksYaxisLabel,
@@ -141,6 +141,19 @@ class SpotCharts extends Component {
           hoverBackgroundColor: '#52B3D9',
           hoverBorderColor: '#C5EFF7',
           data: surfLineBlacksData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
         }
       ]
     }
@@ -160,10 +173,12 @@ class SpotCharts extends Component {
 
   pontoForecastChart() {
 
-    const { spitPontoReport, surfLinePontoReport } = this.props;
+    const { spitPontoReport, surfLinePontoReport, tides } = this.props;
     let slPontoData         = this.flatten(surfLinePontoReport.Surf.surf_max)
     let spitPontoData       = spitPontoReport.map(stuff => stuff.size_ft)
     let spitPontoYaxisLabel = spitPontoReport.map(stuff => stuff.hour)
+    let mapped              = tides.map(stuff => stuff.tide)
+    let hourly              = tides.map(tide => tide.hour)
 
     const pontoData = {
       labels: spitPontoYaxisLabel,
@@ -185,6 +200,19 @@ class SpotCharts extends Component {
           hoverBackgroundColor: '#52B3D9',
           hoverBorderColor: '#C5EFF7',
           data: slPontoData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
         }
       ]
     }
@@ -204,10 +232,12 @@ class SpotCharts extends Component {
 
   windanseaForecastChart() {
 
-    const { spitWindanseaReport, surfLineWindanseaReport } = this.props;
+    const { spitWindanseaReport, surfLineWindanseaReport, tides } = this.props;
     let slWindanseaData         = this.flatten(surfLineWindanseaReport.Surf.surf_max)
     let spitWindanseaData       = spitWindanseaReport.map(stuff => stuff.size_ft)
     let spitWindanseaYaxisLabel = spitWindanseaReport.map(stuff => stuff.hour)
+    let mapped                  = tides.map(stuff => stuff.tide)
+    let hourly                  = tides.map(tide => tide.hour)
 
     const windanseaData = {
       labels: spitWindanseaYaxisLabel,
@@ -229,6 +259,19 @@ class SpotCharts extends Component {
           hoverBackgroundColor: '#52B3D9',
           hoverBorderColor: '#C5EFF7',
           data: slWindanseaData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
         }
       ]
     }
@@ -248,10 +291,12 @@ class SpotCharts extends Component {
 
   scrippsForecastChart() {
 
-    const { spitScrippsReport, surfLineScrippsReport } = this.props;
-    let slScrippsData           = this.flatten(surfLineScrippsReport.Surf.surf_max)
-    let spitScrippsData         = spitScrippsReport.map(stuff => stuff.size_ft)
+    const { spitScrippsReport, surfLineScrippsReport, tides } = this.props;
+    let slScrippsData         = this.flatten(surfLineScrippsReport.Surf.surf_max)
+    let spitScrippsData       = spitScrippsReport.map(stuff => stuff.size_ft)
     let spitScrippsYAxisLabel = spitScrippsReport.map(stuff => stuff.hour)
+    let mapped                = tides.map(stuff => stuff.tide)
+    let hourly                = tides.map(tide => tide.hour)
 
     const scrippsData = {
       labels: spitScrippsYAxisLabel,
@@ -273,6 +318,19 @@ class SpotCharts extends Component {
           hoverBackgroundColor: '#52B3D9',
           hoverBorderColor: '#C5EFF7',
           data: slScrippsData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
         }
       ]
     }
