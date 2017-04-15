@@ -5,15 +5,13 @@ import 'chartjs-plugin-zoom';
 class TideViz extends Component {
 
   sanDiegoTideData() {
-    const { tides, surfLineBeaconsTide } = this.props
+    const { surfLineBeaconsTide } = this.props
 
     const zoomZoom = {
       pan: { enabled: true, mode: 'x', speed: 10, threshold: 10, limits: {max: 10, min: -10}},
       zoom: {enabled: true, mode: 'xy', threshold: 10, limits: {max: 20, min: -20}}
     }
 
-    const mapped  = tides.map(stuff => stuff.tide)
-    const hourly  = tides.map(tide => tide.hour)
     const mapped2 = surfLineBeaconsTide.map(stuff => stuff.height)
     const hourly2 = surfLineBeaconsTide.map(tide => tide.Localtime)
 
@@ -49,23 +47,6 @@ class TideViz extends Component {
       }
     }
 
-    const data = {
-      labels: hourly,
-      datasets: [
-        {
-          label: 'SD County Daily Tides',
-          fill: false,
-          borderColor: 'rgba(75,192,192,1)',
-          pointBorderColor: 'rgba(75,192,192,1)',
-          pointBackgroundColor: '#fff',
-          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
-          pointRadius: 5,
-          pointHitRadius: 5,
-          data: mapped,
-        }
-      ],
-    };
     const data2 = {
       labels: hourly2,
       datasets: [
