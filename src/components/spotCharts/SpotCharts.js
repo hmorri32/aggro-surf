@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Link }             from 'react-router-dom';
-import RC2                  from 'react-chartjs2';
+import React, { Component } from 'react'
+import { Link }             from 'react-router-dom'
+import RC2                  from 'react-chartjs2'
 
 
 class SpotCharts extends Component {
 
   flatten(arr) {
     return arr.reduce(function (flat, toFlatten) {
-      return flat.concat(toFlatten);
-    }, []);
+      return flat.concat(toFlatten)
+    }, [])
   }
 
   gridLineOptions() {
@@ -82,7 +82,7 @@ class SpotCharts extends Component {
           data: slBeaconsData,
         }
       ]
-    };
+    }
 
     return (
       <div>
@@ -126,7 +126,7 @@ class SpotCharts extends Component {
           data: surfLineBlacksData,
         }
       ]
-    };
+    }
 
     return (
       <div>
@@ -170,7 +170,7 @@ class SpotCharts extends Component {
           data: slPontoData,
         }
       ]
-    };
+    }
 
     return (
       <div>
@@ -214,9 +214,7 @@ class SpotCharts extends Component {
           data: slWindanseaData,
         }
       ]
-    };
-
-
+    }
 
     return (
       <div>
@@ -230,7 +228,6 @@ class SpotCharts extends Component {
       </div>
     )
   }
-
 
   render() {
     return (
