@@ -1,0 +1,8 @@
+.montage {
+  display     : flex;
+  justify-content: center;
+  margin      : auto;
+  padding     : 10px;
+  text-align  : center;
+  align-items : center;
+}

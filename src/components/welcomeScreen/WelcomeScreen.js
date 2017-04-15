@@ -52,7 +52,7 @@ export const WelcomeScreen = () => {
       <Link to='/suh'>
         <SVGguy />
       </Link>
-      <h2 className="surf-sauce-h2">ULTRA CHIC SURF</h2>
+      <h2 className="surf-sauce-h2">ULTRA CHIC ARTISINAL SURF</h2>
     </div>
   )
 }
