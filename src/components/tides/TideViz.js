@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RC2 from 'react-chartjs2';
+import RC2                  from 'react-chartjs2';
 import 'chartjs-plugin-zoom';
 
 class TideViz extends Component {

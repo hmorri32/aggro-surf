@@ -1,9 +1,11 @@
-import { store } from '../index.js';
+import { store }    from '../index.js';
 import * as actions from '../actions/actions';
 
-
-// TO FETCH : WINDANSEA, SCRIPPS, CARDIFF, SWAMIS, GRANDVIEW, OCEANSIDE
-
+// FETCH : WINDANSEA spit 227, SCRIPPS spit 228, CARDIFF spit 232, SWAMIS spit 234, GRANDVIEW 400, OCEANSIDE spit 238 surfline 4238
+//
+// you have that yung id in spot detail now.
+// create overlay swell and tide charts.
+// dassitmane
 
 export const fetchYungSpitCastData = () => {
   fetch('http://api.spitcast.com/api/spot/forecast/235/')

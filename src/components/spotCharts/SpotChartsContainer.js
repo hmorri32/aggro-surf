@@ -1,5 +1,5 @@
-import SpotCharts from './SpotCharts';
 import { connect } from 'react-redux';
+import SpotCharts  from './SpotCharts';
 
 const mapStateToProps = (state) => {
   return state
