@@ -44,9 +44,7 @@ class SpotDetail extends Component {
             width="100%"
             height="650"
             frameBorder="0"
-            type="satellite"
-            src={`https://www.google.com/maps/embed/v1/place?key=${yungKeys}
-            &q=${this.state.forecast.lat}, ${this.state.forecast.lon}`}>
+            src={`https://www.google.com/maps/embed/v1/place?key=${yungKeys}&q=${this.state.forecast.lat}, ${this.state.forecast.lon}&maptype=satellite`}>
           </iframe>
           <iframe
             width="100%"
