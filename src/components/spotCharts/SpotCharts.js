@@ -83,7 +83,10 @@ class SpotCharts extends Component {
 
     return (
       <div>
-        <Link to={`/suh/${surfLineBeaconsReport.id}/`}>
+        <Link to={{
+          pathname: `/suh/${surfLineBeaconsReport.id}/`,
+          spitID: `${spitBeaconsReport[0].spot_id}`
+        }}>
           <h2 className='SD-tides'>{spitBeaconsReport[0].spot_name}</h2>
         </Link>
         <RC2 data={data} type='bar' options={expo, gridLineOptions} />
@@ -163,7 +166,10 @@ class SpotCharts extends Component {
     }
     return (
       <div>
-          <Link to={`/suh/${surfLineBlacksReport.id}/`}>
+          <Link to={{
+            pathname: `/suh/${surfLineBlacksReport.id}/`,
+            spitID: `${spitBlacksReport[0].spot_id}`
+          }}>
             <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
           </Link>
         <RC2 data={blacksData} type='bar' options={expo, gridLineOptions} />
