@@ -39,17 +39,6 @@ class SpotCharts extends Component {
           }
         }]
       }
-    },
-
-    {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'feet'
-          }
-        }]
-      }
     }
   }
 
