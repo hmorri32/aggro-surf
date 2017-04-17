@@ -13,3 +13,21 @@
   text-align : center;
 }
 
+.back-button-link {
+  text-align: center;
+  margin: auto;
+}
+
+.back-button {
+  color       : #6496c8;
+  border      : solid 2px #6496c8;
+  background  : rgba(0,0,0,0);
+  text-align  : center;
+}
+
+.back-button:hover {
+  color        : #346392;
+  border-color : #346392;
+  cursor       : pointer;
+}
+

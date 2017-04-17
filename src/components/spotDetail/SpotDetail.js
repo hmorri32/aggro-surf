@@ -64,8 +64,6 @@ class SpotDetail extends Component {
     let yAxis     = spitWeek.map(forecast => forecast.date)
     let tideData  = spitTides.map(forecast => forecast.tide)
 
-    console.log(yAxis);
-
     const data = {
       labels: yAxis,
       datasets: [
