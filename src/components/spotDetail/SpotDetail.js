@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import { Link }             from 'react-router-dom';
 import { WelcomeScreen }    from '../welcomeScreen/WelcomeScreen';
 import { yungKeys }         from '../../helpers/keys.js';
-import TideVizContainer     from '../spotDetailCharts/TideVizContainer.js';
 import RC2                  from 'react-chartjs2'
 import './SpotDetail.css'
 
@@ -118,7 +117,6 @@ class SpotDetail extends Component {
               ? null
               : <p>{this.state.forecast.Analysis.reportdate }</p>}
             { this.MyComponent() }
-            <TideVizContainer />
             { this.superCoolExtendedGraphs() }
           </div>
           <div className='frames'>

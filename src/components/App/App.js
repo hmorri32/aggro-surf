@@ -28,8 +28,6 @@ class App extends Component {
           <Route exact path='/suh' component={ dataVizContainer } />
           <Route exact path='/suh/:id/' component={ SpotDetailContainer }/>
         </div>
-
-        {/* <iframe className='tmbl' src='http://pineapplesandrum.tumblr.com/'></iframe> */}
       </div>
     );
   }
