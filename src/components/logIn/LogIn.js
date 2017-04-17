@@ -22,8 +22,8 @@ class LogIn extends Component {
             />
 
             <button
-              id='signin-btn'
-              onClick={ () => this.signIn() }>Log In
+              id='signin-btn'>
+              Log In
             </button>
         </div>
       </div>
