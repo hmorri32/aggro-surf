@@ -13,31 +13,17 @@ class LogIn extends Component {
       email: '',
       password: '',
       error: '',
-      valid: false
     }
-  }
-
-  checkForUser() {
-    auth.onAuthStateChanged(firebaseUser => {
-      if(firebaseUser) {
-        console.log(firebaseUser);
-      } else {
-        console.log('not logged in');
-      }
-    })
   }
 
   signIn() {
     const { email, password } = this.state
-    const { history }         = this.props
+    const { history, logIn }         = this.props
 
     auth.signInWithEmailAndPassword(email, password)
     .then(user => {
-      const { uid, email } = user
-      this.checkForUser()
-      this.setState({valid: true})
-      this.props.logIn(this.state.valid)
-      this.props.history.push('/')
+      logIn(true)
+      history.push('/')
     })
     .catch((error) => {
       console.log(error);
@@ -46,15 +32,10 @@ class LogIn extends Component {
 
   signOut() {
     auth.signOut()
-    .then( () => this.setState({valid: false}))
-    .then(() => this.props.logIn(this.state.valid))
-    this.checkForUser()
+    .then(() => this.props.logIn(false))
   }
 
   render() {
-    // if(this.props.currentUser){
-    //   return <Redirect to='/' />
-    // }
     return (
       <div className='login-page'>
         <div className='form'>

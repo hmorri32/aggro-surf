@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect }            from 'react-router-dom';
+import { Route, Redirect }  from 'react-router-dom';
 import { Link }             from 'react-router-dom';
 
 import { fetchYungSpitCastData, fetchYungSurflineData } from '../../helpers/fetch.js';
@@ -22,22 +22,22 @@ class App extends Component {
   }
 
   componentWillMount() {
+    this.checkAuth()
     fetchYungSpitCastData()
     fetchYungSurflineData()
-    this.checkAuth()
-    //FIX THIS ASYNC ISSUE
   }
 
   checkAuth() {
     auth.onAuthStateChanged(firebaseUser => {
       if(firebaseUser) {
+        console.log(this.props)
         this.props.logIn(true)
+        this.props.history.push('/')
       } else {
-        console.log('not logged in');
+        this.props.history.push('/login')
       }
     })
   }
-
 
   render() {
     return (
@@ -48,12 +48,16 @@ class App extends Component {
               <div>
                 <WelcomeScreen />
                 <MontageLife />
+                <button onClick={()=> {
+                  auth.signOut()
+                  this.props.logIn(false)
+                  this.props.history.push('/login')
+                }}>Logout</button>
               </div>
             )
           }
-          else {
-            return <Redirect to='/login' />
-          }
+          // loading page component
+          return <div>Loading.....</div>
         }}/>
         <div className="App-background">
           <Route exact path='/suh' component={ dataVizContainer } />

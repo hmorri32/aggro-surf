@@ -6,7 +6,7 @@ import * as actions from '../actions/actions';
 
 // you have that yung id in spot detail now.
 // create overlay swell and tide charts.
-// still do all this *** 
+// still do all this ***
 // dassitmane
 
 export const fetchYungSpitCastData = () => {
