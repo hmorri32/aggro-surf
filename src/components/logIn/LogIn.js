@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link }             from 'react-router-dom';
-import { SVGguy } from '../welcomeScreen/WelcomeScreen'
+import { SVGguy }           from '../welcomeScreen/WelcomeScreen'
+import { auth, database }   from '../../firebase.js'
 import './LogIn.css'
 
 class LogIn extends Component {
@@ -9,9 +10,50 @@ class LogIn extends Component {
     this.state = {
       email: '',
       password: '',
-      error: ''
+      error: '',
+      valid: false
     }
   }
+
+  checkForUser() {
+    auth.onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        console.log(firebaseUser);
+      }else {
+        console.log('not logged in');
+      }
+    })
+  }
+
+  fireBaseStuff(uid) {
+
+  }
+
+  signIn() {
+    const { email, password } = this.state
+    const { history }         = this.props
+
+    auth.signInWithEmailAndPassword(email, password)
+    .then(user => {
+      const { uid, email } = user
+      this.checkForUser()
+      this.setState({valid: true})
+      this.props.logIn(this.state.valid)
+    })
+    .then(() => this.setState({ email: '', password: '' }))
+    .catch((error) => {
+      console.log(error);
+      this.setState({ error: error.message })
+    });
+  }
+
+  signOut() {
+    auth.signOut()
+    .then( () => this.setState({valid: false}))
+    .then(() => this.props.logIn(this.state.valid))
+    this.checkForUser()
+  }
+
 
   render() {
     return (
@@ -32,8 +74,16 @@ class LogIn extends Component {
               onChange={ (e) => this.setState({ password: e.target.value }) }
             />
             <button
-              id='signin-btn'>
+              id='signin-btn'
+              onClick={ () => this.signIn() }
+              >
               Log In
+            </button>
+            <button
+              id='signout-btn'
+              onClick={ () => this.signOut() }
+              >
+              Log Out
             </button>
         </div>
       </div>
