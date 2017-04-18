@@ -40,8 +40,10 @@ class LogIn extends Component {
       this.setState({valid: true})
       this.props.logIn(this.state.valid)
     })
+    .then(() => this.setState({ email: '', password: '' }))
     .catch((error) => {
       console.log(error);
+      this.setState({ error: error.message })
     });
   }
 
