@@ -51,9 +51,6 @@ export const WelcomeScreen = () => {
         <SVGguy />
       </Link>
       <h2 className="surf-sauce-h2">ULTRA CHIC ARTISANAL SURF</h2>
-      <Link to='/login'>
-        CLICK HERE TO LOGIN
-      </Link>
     </div>
   )
 }

@@ -9,23 +9,32 @@ import AppContainer        from './AppContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
 import LogInContainer      from '../logIn/LogInContainer';
 import MontageLife         from '../montageLife/MontageLife';
+import { auth, database }  from '../../firebase.js'
 
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      user: false
+    }
+  }
 
   componentDidMount() {
     fetchYungSpitCastData()
     fetchYungSurflineData()
+    this.checkAuth()
   }
 
-   redirect() {
-    // if(!this.props.currentUser) {
-    //   return <AppContainer />
-    // }
-    if(!this.props.currentUser){
-      return <Redirect to='/login' />
-    }
+  checkAuth() {
+    auth.onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        this.props.logIn(true)
+      } else {
+        console.log('not logged in');
+      }
+    })
   }
 
 
