@@ -10,7 +10,8 @@ class LogIn extends Component {
     this.state = {
       email: '',
       password: '',
-      error: ''
+      error: '',
+      valid: false
     }
   }
 
@@ -30,24 +31,24 @@ class LogIn extends Component {
 
   signIn() {
     const { email, password } = this.state
-    const { history } = this.props
+    const { history }         = this.props
+
     auth.signInWithEmailAndPassword(email, password)
-      .then(user => {
-        const { uid, email } = user
-        this.checkForUser()
-      })
+    .then(user => {
+      const { uid, email } = user
+      this.checkForUser()
+      this.setState({valid: true})
+      this.props.logIn(this.state.valid)
+    })
     .catch((error) => {
-        console.log(error);
-      });
-    // this.setState({
-    //   email: '',
-    //   password: '',
-    //   error: ''
-    // })
+      console.log(error);
+    });
   }
 
   signOut() {
     auth.signOut()
+    .then( () => this.setState({valid: false}))
+    .then(() => this.props.logIn(this.state.valid))
     this.checkForUser()
   }
 

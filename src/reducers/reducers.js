@@ -125,10 +125,10 @@ export const surfLineWindanseaReport = (state={}, action) => {
 }
 
 
-export const currentUser = (state={}, action) => {
+export const currentUser = (state=false, action) => {
   switch(action.type) {
     case 'LOG_IN':
-      return action.user;
+      return action.boolean;
     default:
       return state;
   }

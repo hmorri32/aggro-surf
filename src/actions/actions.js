@@ -102,10 +102,10 @@ export const surfLineWindanseaSurf = (report) => {
   }
 };
 
-export const logIn = (user) => {
+export const logIn = (boolean) => {
   return {
     type: 'LOG_IN',
-    user
+    boolean
   }
 };
 
