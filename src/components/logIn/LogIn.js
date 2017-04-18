@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link }             from 'react-router-dom';
 import { SVGguy }           from '../welcomeScreen/WelcomeScreen'
+import { Route, Redirect }            from 'react-router-dom';
+
 import { auth, database }   from '../../firebase.js'
 import './LogIn.css'
 
@@ -19,14 +21,10 @@ class LogIn extends Component {
     auth.onAuthStateChanged(firebaseUser => {
       if(firebaseUser) {
         console.log(firebaseUser);
-      }else {
+      } else {
         console.log('not logged in');
       }
     })
-  }
-
-  fireBaseStuff(uid) {
-
   }
 
   signIn() {
@@ -53,8 +51,10 @@ class LogIn extends Component {
     this.checkForUser()
   }
 
-
   render() {
+    // if(this.props.currentUser){
+    //   return <Redirect to='/' />
+    // }
     return (
       <div className='login-page'>
         <div className='form'>

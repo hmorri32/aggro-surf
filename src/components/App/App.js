@@ -21,10 +21,11 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     fetchYungSpitCastData()
     fetchYungSurflineData()
     this.checkAuth()
+    //FIX THIS ASYNC ISSUE
   }
 
   checkAuth() {
