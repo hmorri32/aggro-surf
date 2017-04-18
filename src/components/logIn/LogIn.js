@@ -5,6 +5,11 @@ import './LogIn.css'
 class LogIn extends Component {
   constructor() {
     super();
+    this.state = {
+      email: '',
+      password: '',
+      error: ''
+    }
   }
 
   render() {
@@ -15,12 +20,15 @@ class LogIn extends Component {
             <input type='text'
               name='email'
               placeholder='username'
+              value={ this.state.email }
+              onChange={ (e) => this.setState({ email: e.target.value }) }
             />
             <input type='password'
               name='password'
               placeholder='password'
+              value={ this.state.password }
+              onChange={ (e) => this.setState({ password: e.target.value }) }
             />
-
             <button
               id='signin-btn'>
               Log In

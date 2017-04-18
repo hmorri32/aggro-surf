@@ -1,5 +1,6 @@
-import React      from 'react';
-import { render } from 'react-dom';
+import React        from 'react';
+import { render }   from 'react-dom';
+import { database } from './firebase';
 
   /******** store ********/
 import { createStore, applyMiddleware } from 'redux';
@@ -11,7 +12,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { Provider }        from 'react-redux';
 import { Route }           from 'react-router-dom';
 
-  /******** import files ********/
+  /******** files ********/
 import { root }     from './reducers/rootReducer';
 import AppContainer from './components/app/AppContainer';
 
@@ -21,18 +22,6 @@ const middleware   = routerMiddleware(history)
 const devTools     = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 export const store = createStore(root, devTools, applyMiddleware(middleware))
 
-  /******** yung firebase ********/
-import * as firebase from 'firebase';
-const config = {
-  apiKey: "AIzaSyCDDiX2BgjgfpTtCC6QuWxZ7rDMqjkWeBc",
-  authDomain: "aggro-surf-1492129595773.firebaseapp.com",
-  databaseURL: "https://aggro-surf-1492129595773.firebaseio.com",
-  projectId: "aggro-surf-1492129595773",
-  storageBucket: "aggro-surf-1492129595773.appspot.com",
-  messagingSenderId: "51405118693"
-};
-
-firebase.initializeApp(config);
 
 const router = (
   <Provider store={ store }>
@@ -43,3 +32,8 @@ const router = (
 )
 
 render( router, document.getElementById('root'));
+
+
+
+
+
