@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link }             from 'react-router-dom';
+import { SVGguy } from '../welcomeScreen/WelcomeScreen'
 import './LogIn.css'
 
 class LogIn extends Component {
@@ -16,6 +17,7 @@ class LogIn extends Component {
     return (
       <div className='login-page'>
         <div className='form'>
+          <SVGguy />
           <div className='login-form'>
             <input type='text'
               name='email'

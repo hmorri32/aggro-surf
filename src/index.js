@@ -10,7 +10,7 @@ import createHistory                    from 'history/createBrowserHistory';
   /******** router ********/
 import { ConnectedRouter } from 'react-router-redux';
 import { Provider }        from 'react-redux';
-import { Route }           from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
   /******** files ********/
 import { root }     from './reducers/rootReducer';

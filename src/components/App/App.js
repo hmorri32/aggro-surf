@@ -7,7 +7,9 @@ import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
 import dataVizContainer    from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
 import LogInContainer      from '../logIn/LogInContainer';
-import MontageLife         from '../montageLife/MontageLife'
+import MontageLife         from '../montageLife/MontageLife';
+import AppContainer        from './AppContainer';
+
 import './App.css';
 
 class App extends Component {

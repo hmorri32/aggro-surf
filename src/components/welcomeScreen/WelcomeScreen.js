@@ -2,7 +2,7 @@ import React    from 'react';
 import { Link } from 'react-router-dom';
 
 
-const SVGguy = () => {
+export const SVGguy = () => {
   return (
     <svg className='aggro-surf-welcome' viewBox="0 0 100 20">
       <defs>
