@@ -20,13 +20,17 @@
 
 .back-button {
   color       : #6496c8;
+  height: 40px;
   border      : solid 2px #6496c8;
   background  : rgba(0,0,0,0);
   text-align  : center;
+  text-transform: uppercase;
 }
 
 .back-button:hover {
-  color        : #346392;
+  background-color: #346392;
+
+  color        : white;
   border-color : #346392;
   cursor       : pointer;
 }
