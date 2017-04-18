@@ -102,4 +102,11 @@ export const surfLineWindanseaSurf = (report) => {
   }
 };
 
+export const logIn = (user) => {
+  return {
+    type: 'LOG_IN',
+    user
+  }
+};
+
 

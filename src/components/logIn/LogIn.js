@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link }             from 'react-router-dom';
-import { SVGguy } from '../welcomeScreen/WelcomeScreen'
+import { SVGguy }           from '../welcomeScreen/WelcomeScreen'
+import { auth, database }   from '../../firebase.js'
 import './LogIn.css'
 
 class LogIn extends Component {
@@ -12,6 +13,44 @@ class LogIn extends Component {
       error: ''
     }
   }
+
+  checkForUser() {
+    auth.onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        console.log(firebaseUser);
+      }else {
+        console.log('not logged in');
+      }
+    })
+  }
+
+  fireBaseStuff(uid) {
+
+  }
+
+  signIn() {
+    const { email, password } = this.state
+    const { history } = this.props
+    auth.signInWithEmailAndPassword(email, password)
+      .then(user => {
+        const { uid, email } = user
+        this.checkForUser()
+      })
+    .catch((error) => {
+        console.log(error);
+      });
+    // this.setState({
+    //   email: '',
+    //   password: '',
+    //   error: ''
+    // })
+  }
+
+  signOut() {
+    auth.signOut()
+    this.checkForUser()
+  }
+
 
   render() {
     return (
@@ -32,8 +71,16 @@ class LogIn extends Component {
               onChange={ (e) => this.setState({ password: e.target.value }) }
             />
             <button
-              id='signin-btn'>
+              id='signin-btn'
+              onClick={ () => this.signIn() }
+              >
               Log In
+            </button>
+            <button
+              id='signout-btn'
+              onClick={ () => this.signOut() }
+              >
+              Log Out
             </button>
         </div>
       </div>
