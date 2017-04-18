@@ -18,7 +18,7 @@ class LogIn extends Component {
 
   signIn() {
     const { email, password } = this.state
-    const { history, logIn }         = this.props
+    const { history, logIn }  = this.props
 
     auth.signInWithEmailAndPassword(email, password)
     .then(user => {
@@ -26,6 +26,7 @@ class LogIn extends Component {
       history.push('/')
     })
     .catch((error) => {
+      this.setState({error: error.message})
       console.log(error);
     });
   }
@@ -66,6 +67,7 @@ class LogIn extends Component {
               Log Out
             </button>
         </div>
+        {this.state.error && <h2 className='error'>{this.state.error}</h2>}
       </div>
     </div>
     )
