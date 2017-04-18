@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { Link }             from 'react-router-dom';
 import { SVGguy }           from '../welcomeScreen/WelcomeScreen'
-import { Route, Redirect }            from 'react-router-dom';
-
-import { auth, database }   from '../../firebase.js'
+import { auth }             from '../../firebase.js'
 import './LogIn.css'
 
 class LogIn extends Component {
@@ -27,13 +24,7 @@ class LogIn extends Component {
     })
     .catch((error) => {
       this.setState({error: error.message})
-      console.log(error);
     });
-  }
-
-  signOut() {
-    auth.signOut()
-    .then(() => this.props.logIn(false))
   }
 
   render() {
@@ -42,13 +33,15 @@ class LogIn extends Component {
         <div className='form'>
           <SVGguy />
           <div className='login-form'>
-            <input type='text'
+            <input
+              type='text'
               name='email'
               placeholder='username'
               value={ this.state.email }
               onChange={ (e) => this.setState({ email: e.target.value }) }
             />
-            <input type='password'
+            <input
+              type='password'
               name='password'
               placeholder='password'
               value={ this.state.password }
@@ -59,12 +52,6 @@ class LogIn extends Component {
               onClick={ () => this.signIn() }
               >
               Log In
-            </button>
-            <button
-              id='signout-btn'
-              onClick={ () => this.signOut() }
-              >
-              Log Out
             </button>
         </div>
         {this.state.error && <h2 className='error'>{this.state.error}</h2>}

@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
-import { Route, Redirect }  from 'react-router-dom';
-import { Link }             from 'react-router-dom';
+import { Route }            from 'react-router-dom';
 
 import { fetchYungSpitCastData, fetchYungSurflineData } from '../../helpers/fetch.js';
 import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
 import dataVizContainer    from '../dataVizGrid/DataVizContainer';
-import AppContainer        from './AppContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
 import LogInContainer      from '../logIn/LogInContainer';
 import MontageLife         from '../montageLife/MontageLife';
-import { auth, database }  from '../../firebase.js'
+import { auth }  from '../../firebase.js'
 
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      user: false
-    }
-  }
 
   componentWillMount() {
     this.checkAuth()
@@ -28,13 +20,14 @@ class App extends Component {
   }
 
   checkAuth() {
+    const { logIn, history } = this.props
+
     auth.onAuthStateChanged(firebaseUser => {
       if(firebaseUser) {
-        console.log(this.props)
-        this.props.logIn(true)
-        this.props.history.push('/')
+        logIn(true)
+        history.push('/')
       } else {
-        this.props.history.push('/login')
+        history.push('/login')
       }
     })
   }
@@ -48,11 +41,6 @@ class App extends Component {
               <div>
                 <WelcomeScreen />
                 <MontageLife />
-                <button onClick={()=> {
-                  auth.signOut()
-                  this.props.logIn(false)
-                  this.props.history.push('/login')
-                }}>Logout</button>
               </div>
             )
           }

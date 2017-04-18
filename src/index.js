@@ -1,6 +1,5 @@
 import React        from 'react';
 import { render }   from 'react-dom';
-import { database } from './firebase';
 
   /******** store ********/
 import { createStore, applyMiddleware } from 'redux';
@@ -22,12 +21,6 @@ const middleware   = routerMiddleware(history)
 const devTools     = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 export const store = createStore(root, devTools, applyMiddleware(middleware))
 
-// redirect() {
-//   if(this.props.currentUser) {
-//     return <ItineraryWrapper itineraries={this.props.itineraries}/>
-//   }
-//   return <Redirect to='/login' />
-// }
 
 
 const router = (

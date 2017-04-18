@@ -1,5 +1,6 @@
 import React    from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase.js'
 
 
 export const SVGguy = () => {
@@ -51,6 +52,11 @@ export const WelcomeScreen = () => {
         <SVGguy />
       </Link>
       <h2 className="surf-sauce-h2">ULTRA CHIC ARTISANAL SURF</h2>
+      <button onClick={()=> {
+        auth.signOut()
+        this.props.logIn(false)
+        this.props.history.push('/login')
+      }}>Logout</button>
     </div>
   )
 }
