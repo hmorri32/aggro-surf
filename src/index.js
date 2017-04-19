@@ -19,6 +19,7 @@ import AppContainer from './components/app/AppContainer';
 const history      = createHistory()
 const middleware   = routerMiddleware(history)
 const devTools     = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
 export const store = createStore(root, devTools, applyMiddleware(middleware))
 
 

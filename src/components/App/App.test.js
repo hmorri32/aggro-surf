@@ -6,6 +6,6 @@ import App                from './App.js'
 const store = configureMockStore()();
 
 it('renders without crashing', () => {
-  let wrapper = shallow(<App provider={store}/>)
-  console.log('suh');
+  let wrapper = shallow(<App />)
+  console.log('hey');
 });
