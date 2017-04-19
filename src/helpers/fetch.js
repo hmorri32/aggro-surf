@@ -1,5 +1,5 @@
 
-// FETCH : WINDANSEA spit 227 surfline 4248, SCRIPPS spit 228 surflin 4246, CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
+// FETCH : CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
 
 // you have that yung id in spot detail now.
@@ -14,6 +14,11 @@ export const spitCastBeaconsData = () => {
 
 export const spitCastBlacksData = () => {
   return fetch('http://api.spitcast.com/api/spot/forecast/229/')
+  .then(response => response.json())
+}
+
+export const spitCastCardiffData = () => {
+  return fetch('http://api.spitcast.com/api/spot/forecast/232/')
   .then(response => response.json())
 }
 
@@ -54,6 +59,11 @@ export const surfLineBeaconsTide = () => {
 
 export const surfLineBlacksData = () => {
   return fetch('http://api.surfline.com/v1/forecasts/4245')
+  .then(response => response.json())
+}
+
+export const surfLineCardiffData = () => {
+  return fetch('http://api.surfline.com/v1/forecasts/139590')
   .then(response => response.json())
 }
 

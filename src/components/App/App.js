@@ -15,7 +15,9 @@ import {
   surfLinePontoData,
   surfLineScrippsData,
   surfineTamarackData,
-  surfLineWindanseaData }  from '../../helpers/fetch.js';
+  surfLineWindanseaData,
+  spitCastCardiffData,
+  surfLineCardiffData }    from '../../helpers/fetch.js';
 import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
 import dataVizContainer    from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
@@ -37,11 +39,21 @@ class App extends Component {
         return report
       })
     })
-.catch(e => e)
+    .catch(e => e)
+
     spitCastBlacksData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastBlacksSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
+    spitCastCardiffData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastCardiffSurf(report)
         return report
       })
     })
@@ -107,6 +119,12 @@ class App extends Component {
     surfLineBlacksData()
     .then((json) => {
       this.props.surfLineBlacksSurf(json)
+    })
+    .catch(e => e)
+
+    surfLineCardiffData()
+    .then((json) => {
+      this.props.surfLineCardiffSurf(json)
     })
     .catch(e => e)
 
