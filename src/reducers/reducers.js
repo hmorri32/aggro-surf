@@ -124,7 +124,6 @@ export const surfLineWindanseaReport = (state={}, action) => {
   }
 }
 
-
 export const currentUser = (state=false, action) => {
   switch(action.type) {
     case 'LOG_IN':
