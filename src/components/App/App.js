@@ -146,7 +146,7 @@ class App extends Component {
       this.props.surfLineScrippsSurf(json)
     })
     .catch(e => e)
-    
+
     fetch.surfLineSwamisData()
     .then((json) => {
       this.props.surfLineSwamisSurf(json)
@@ -180,6 +180,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('render');
     return (
       <div className="App">
         <Route exact path='/' render={ () => {

@@ -135,7 +135,7 @@ describe.skip('testing the loging component', () => {
     done()
   })
 
-  it.skip('should do redirect to home ',  () => {
+  it('should do redirect to home ',  () => {
 
     let wrapper = mount(<LogIn signIn={jest.fn()} history={browserHistory}/>)
 
