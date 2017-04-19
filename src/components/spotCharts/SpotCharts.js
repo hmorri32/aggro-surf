@@ -576,14 +576,14 @@ class SpotCharts extends Component {
   render() {
     return (
       <div>
-        {this.beaconsForecastChart()}
-        {this.blacksForeCastChart()}
-        {this.cardiffForecastChart()}
         {this.oceansideForecastChart()}
-        {this.pontoForecastChart()}
-        {this.scrippsForecastChart()}
-        {this.swamisForecastChart()}
         {this.tamarackForecastChart()}
+        {this.pontoForecastChart()}
+        {this.beaconsForecastChart()}
+        {this.swamisForecastChart()}
+        {this.cardiffForecastChart()}
+        {this.blacksForeCastChart()}
+        {this.scrippsForecastChart()}
         {this.windanseaForecastChart()}
       </div>
     )
