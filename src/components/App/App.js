@@ -7,7 +7,7 @@ import dataVizContainer    from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
 import LogInContainer      from '../logIn/LogInContainer';
 import MontageLife         from '../montageLife/MontageLife';
-import { auth }  from '../../firebase.js'
+import { auth }            from '../../firebase.js'
 
 import './App.css';
 
