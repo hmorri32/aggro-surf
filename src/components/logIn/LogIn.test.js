@@ -5,7 +5,10 @@ import { browserHistory } from 'react-router'
 
 import {LogIn} from './LogIn'
 
+describe('testing the loging component', () => {
 
-it('should render without crashing', () =>{
-  console.log('hi');
+  it.only('should render without crashing', () =>{
+    console.log('hi');
+  })
+
 })
