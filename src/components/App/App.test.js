@@ -7,7 +7,7 @@ import {spitCastBeaconsData} from '../../helpers/fetch.js'
 
 
 
-describe('testing this app', () => {
+describe.skip('testing this app', () => {
   it('should render without exploding', () => {
   let wrapper = shallow(<App />)
 
@@ -16,18 +16,17 @@ describe('testing this app', () => {
   expect(wrapper.find('Route').length).toBe(4)
   })
 
-  it.only('it fetches', () => {
+  it('it fetches', () => {
     let wrapper = shallow(<App />)
+
+    const spy = spyOn(<App />, 'spitCastBeaconsData');
 
     fetchMock.get('http://api.spitcast.com/api/spot/forecast/235/',
     { status: 200})
 
-    spitCastBeaconsData()
-    .then((json) => {
-      console.log(json)
-    })
+    console.log(spy);
+    //wtf
 
-    console.log(wrapper.debug());
   })
 
 })
