@@ -31,7 +31,6 @@ export const surfLineBeaconsTide = (report) => {
   }
 };
 
-
 export const spitCastBlacksSurf = (report) => {
   return {
     type: 'BLACKS_SURF',
@@ -98,6 +97,20 @@ export const spitCastScrippsSurf = (report) => {
 export const surfLineScrippsSurf = (report) => {
   return {
     type: 'SL_SCRIPPS_SURF',
+    report
+  }
+};
+
+export const spitCastSwamisSurf = (report) => {
+  return {
+    type: 'SWAMIS_SURF',
+    report
+  }
+};
+
+export const surfLineSwamisSurf = (report) => {
+  return {
+    type: 'SL_SWAMIS_SURF',
     report
   }
 };

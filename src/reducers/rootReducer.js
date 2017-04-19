@@ -17,7 +17,9 @@ import { tides,
   spitCardiffReport,
   surfLineCardiffReport,
   spitOceansideReport,
-  surfLineOceansideReport } from './reducers'
+  surfLineOceansideReport,
+  spitSwamisReport,
+  surfLineSwamisReport }    from './reducers'
 import { routerReducer }    from 'react-router-redux';
 
 export const root = combineReducers({
@@ -39,6 +41,8 @@ export const root = combineReducers({
   surfLineCardiffReport,
   spitOceansideReport,
   surfLineOceansideReport,
+  spitSwamisReport,
+  surfLineSwamisReport,
   currentUser,
   router: routerReducer
 })

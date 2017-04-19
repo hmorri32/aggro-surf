@@ -69,6 +69,15 @@ class App extends Component {
     })
     .catch(e => e)
 
+    fetch.spitCastSwamisData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastSwamisSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
     fetch.spitCastTamarackData()
     .then((json) => {
       json.map((report) => {
@@ -135,6 +144,12 @@ class App extends Component {
     fetch.surfLineScrippsData()
     .then((json) => {
       this.props.surfLineScrippsSurf(json)
+    })
+    .catch(e => e)
+    
+    fetch.surfLineSwamisData()
+    .then((json) => {
+      this.props.surfLineSwamisSurf(json)
     })
     .catch(e => e)
 

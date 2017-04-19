@@ -2,11 +2,6 @@
 // FETCH : CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
 
-// you have that yung id in spot detail now.
-// create overlay swell and tide charts.
-// still do all this ***
-// dassitmane
-
 export const spitCastBeaconsData = () => {
   return fetch('http://api.spitcast.com/api/spot/forecast/235/')
   .then(response => response.json())
@@ -34,6 +29,11 @@ export const spitCastPontoData = () => {
 
 export const spitCastScrippsData = () => {
   return fetch('http://api.spitcast.com/api/spot/forecast/228/')
+  .then(response => response.json())
+}
+
+export const spitCastSwamisData = () => {
+  return fetch('http://api.spitcast.com/api/spot/forecast/234/')
   .then(response => response.json())
 }
 
@@ -84,6 +84,11 @@ export const surfLinePontoData = () => {
 
 export const surfLineScrippsData = () => {
   return fetch('http://api.surfline.com/v1/forecasts/4246')
+  .then(response => response.json())
+}
+
+export const surfLineSwamisData = () => {
+  return fetch('http://api.surfline.com/v1/forecasts/4789')
   .then(response => response.json())
 }
 
