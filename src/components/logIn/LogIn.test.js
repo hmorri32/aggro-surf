@@ -5,7 +5,7 @@ import fetchMock          from 'fetch-mock'
 
 import LogIn from './LogIn'
 
-describe.skip('testing the loging component', () => {
+describe('testing the loging component', () => {
 
   it('should render without crashing', () => {
     let wrapper = shallow(<LogIn signIn={jest.fn()}/>)
@@ -135,9 +135,9 @@ describe.skip('testing the loging component', () => {
     done()
   })
 
-  it('should do redirect to home ',  () => {
+  it.skip('should do redirect to home ',  () => {
 
-    let wrapper = mount(<LogIn signIn={jest.fn()} history={browserHistory}/>)
+    let wrapper = mount(<LogIn signIn={jest.fn()} />)
 
     let email = wrapper.find('input[name="email"]')
     let password = wrapper.find('input[name="password"]')

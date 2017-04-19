@@ -7,7 +7,7 @@ import {spitCastBeaconsData} from '../../helpers/fetch.js'
 
 
 
-describe.skip('testing this app', () => {
+describe('testing this app', () => {
   it('should render without exploding', () => {
   let wrapper = shallow(<App />)
 
@@ -16,7 +16,7 @@ describe.skip('testing this app', () => {
   expect(wrapper.find('Route').length).toBe(4)
   })
 
-  it('it fetches', () => {
+  it.skip('it fetches', () => {
     let wrapper = shallow(<App />)
 
     const spy = spyOn(<App />, 'spitCastBeaconsData');

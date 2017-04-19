@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 import {WelcomeScreen} from './WelcomeScreen'
 import { Link }        from 'react-router-dom';
 
-describe.skip('testing our super cool welcome screen', () => {
+describe('testing our super cool welcome screen', () => {
   it('should render without blowing up', () =>{
 
     let wrapper = shallow(<WelcomeScreen />)

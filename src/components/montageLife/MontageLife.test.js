@@ -4,7 +4,7 @@ import fetchMock   from 'fetch-mock'
 
 import MontageLife from './MontageLife'
 
-describe.skip('testing that ultra chic collage', () => {
+describe('testing that ultra chic collage', () => {
   it('should render without blowing up', () => {
     let wrapper = shallow(<MontageLife />)
 
