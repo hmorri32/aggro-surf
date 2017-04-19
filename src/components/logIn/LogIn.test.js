@@ -1,7 +1,6 @@
 import React              from 'react'
-import { shallow }        from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import fetchMock          from 'fetch-mock'
-import { browserHistory } from 'react-router'
 
 
 import LogIn from './LogIn'
@@ -134,6 +133,40 @@ describe('testing the loging component', () => {
     expect(wrapper.state().password).toBe('suhDude')
     expect(wrapper.find('.error').length).toBe(0)
     done()
+  })
+
+  it.skip('should do redirect to home ',  () => {
+
+    let wrapper = mount(<LogIn signIn={jest.fn()} history={browserHistory}/>)
+
+    let email = wrapper.find('input[name="email"]')
+    let password = wrapper.find('input[name="password"]')
+    let submit = wrapper.find('button')
+
+    email.simulate('change', {
+      target: {
+        value: 'hugh@email.com'
+      }
+    })
+
+    password.simulate('change', {
+      target: {
+        value: 'suhDude'
+      }
+    })
+
+    submit.simulate('click', {
+      onClick: jest.fn()
+    })
+
+    console.log(wrapper.debug());
+    expect(jest.fn()).toHaveBeenCalled()
+    expect(wrapper.state().email).toBe('hugh@email.com')
+    expect(wrapper.state().password).toBe('suhDude')
+    expect(wrapper.find('.error').length).toBe(0)
+
+    // expect that it redirects
+
   })
 
 })
