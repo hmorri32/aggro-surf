@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 import { Route }            from 'react-router-dom';
 
-import { fetchYungSpitCastData, fetchYungSurflineData } from '../../helpers/fetch.js';
+import {
+  spitCastBeaconsData,
+  spitCastBlacksData,
+  spitCastPontoData,
+  spitCastScrippsData,
+  spitCastTamarackData,
+  spitCastWindanseaData,
+  spitCastSDTides,
+  surfLineBeaconsData,
+  surfLineBeaconsTide,
+  surfLineBlacksData,
+  surfLinePontoData,
+  surfLineScrippsData,
+  surfineTamarackData,
+  surfLineWindanseaData }  from '../../helpers/fetch.js';
 import { WelcomeScreen }   from '../welcomeScreen/WelcomeScreen';
 import dataVizContainer    from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer from '../spotDetail/SpotDetailContainer';
@@ -15,8 +29,110 @@ class App extends Component {
 
   componentWillMount() {
     this.checkAuth()
-    fetchYungSpitCastData()
-    fetchYungSurflineData()
+
+    spitCastBeaconsData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastBeaconsSurf(report)
+        return report
+      })
+    })
+.catch(e => e)
+    spitCastBlacksData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastBlacksSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
+    spitCastPontoData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastPontoSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
+    spitCastScrippsData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastScrippsSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
+    spitCastTamarackData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastTamarackSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
+    spitCastWindanseaData()
+    .then((json) => {
+      json.map((report) => {
+        this.props.spitCastWindanseaSurf(report)
+        return report
+      })
+    })
+    .catch(e => e)
+
+    spitCastSDTides()
+    .then((json) => {
+      json.map((tideInfo) => {
+        this.props.saintDiegoTides(tideInfo)
+        return tideInfo
+      })
+    })
+    .catch(e => e)
+
+    surfLineBeaconsData()
+    .then((json) => {
+      this.props.surfLineBeaconsSurf(json)
+    })
+    .catch(e => e)
+
+    surfLineBeaconsTide()
+    .then((json) => {
+      this.props.surfLineBeaconsTide(json.Tide.dataPoints)
+    })
+    .catch(e => e)
+
+    surfLineBlacksData()
+    .then((json) => {
+      this.props.surfLineBlacksSurf(json)
+    })
+    .catch(e => e)
+
+    surfLinePontoData()
+    .then((json) => {
+      this.props.surfLinePontoSurf(json)
+    })
+    .catch(e => e)
+
+    surfLineScrippsData()
+    .then((json) => {
+      this.props.surfLineScrippsSurf(json)
+    })
+    .catch(e => e)
+
+    surfineTamarackData()
+    .then((json) => {
+      this.props.surfLineTamarackSurf(json)
+    })
+    .catch(e => e)
+
+    surfLineWindanseaData()
+    .then((json) => {
+      this.props.surfLineWindanseaSurf(json)
+    })
+    .catch(e => e)
   }
 
   checkAuth() {
