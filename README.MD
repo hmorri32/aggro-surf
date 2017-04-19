@@ -2,7 +2,7 @@
 AGGRO SURF. An aggregate surf forecasting application
 
 ## Project Status
-This project is currently in development. 
+This project is currently in development.
 
 ## Project Screen Shot(s)   
 ![aggro gif](http://recordit.co/djZVJtqGCp.gif)
