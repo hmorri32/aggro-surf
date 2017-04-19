@@ -22,6 +22,11 @@ export const spitCastCardiffData = () => {
   .then(response => response.json())
 }
 
+export const spitCastOceansideData = () => {
+  return fetch('http://api.spitcast.com/api/spot/forecast/238/')
+  .then(response => response.json())
+}
+
 export const spitCastPontoData = () => {
   return fetch('http://api.spitcast.com/api/spot/forecast/236/')
   .then(response => response.json())
@@ -64,6 +69,11 @@ export const surfLineBlacksData = () => {
 
 export const surfLineCardiffData = () => {
   return fetch('http://api.surfline.com/v1/forecasts/139590')
+  .then(response => response.json())
+}
+
+export const surfLineOceansideData = () => {
+  return fetch('http://api.surfline.com/v1/forecasts/4238')
   .then(response => response.json())
 }
 

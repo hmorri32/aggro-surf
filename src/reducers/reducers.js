@@ -70,6 +70,24 @@ export const surfLineCardiffReport = (state = {}, action) => {
   }
 }
 
+export const spitOceansideReport = (state = [], action) => {
+  switch(action.type) {
+    case 'OCEANSIDE_SURF':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}
+
+export const surfLineOceansideReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_OCEANSIDE_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
 export const spitPontoReport = (state = [], action) => {
   switch(action.type) {
     case 'PONTO_SURF':

@@ -218,6 +218,63 @@ class SpotCharts extends Component {
     )
   }
 
+  oceansideForecastChart() {
+    const { spitOceansideReport, surfLineOceansideReport, tides } = this.props;
+    let slOceansideData         = this.flatten(surfLineOceansideReport.Surf.surf_max)
+    let spitOceansideData       = spitOceansideReport.map(stuff => stuff.size_ft)
+    let spitOceansideYaxisLabel = spitOceansideReport.map(stuff => stuff.hour)
+    let mapped                  = tides.map(stuff => stuff.tide)
+
+    const oceansideData = {
+      labels: spitOceansideYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitOceansideData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slOceansideData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
+        }
+      ]
+    }
+    return (
+      <div>
+          <Link to={{
+            pathname: `/suh/${surfLineOceansideReport.id}/`,
+            spitData: this.props.spitOceansideReport,
+            spitID: spitOceansideReport[0].spot_id
+          }}>
+            <h2 className='SD-tides'>{spitOceansideReport[0].spot_name}</h2>
+          </Link>
+          <RC2 data={oceansideData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
   pontoForecastChart() {
     const { spitPontoReport, surfLinePontoReport, tides } = this.props;
 
@@ -461,6 +518,7 @@ class SpotCharts extends Component {
         {this.beaconsForecastChart()}
         {this.blacksForeCastChart()}
         {this.cardiffForecastChart()}
+        {this.oceansideForecastChart()}
         {this.pontoForecastChart()}
         {this.scrippsForecastChart()}
         {this.tamarackForecastChart()}

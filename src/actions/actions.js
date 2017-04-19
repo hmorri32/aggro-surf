@@ -60,6 +60,20 @@ export const surfLineCardiffSurf = (report) => {
   }
 }
 
+export const spitCastOceansideSurf = (report) => {
+  return {
+    type: 'OCEANSIDE_SURF',
+    report
+  }
+}
+
+export const surfLineOceansideSurf = (report) => {
+  return {
+    type: 'SL_OCEANSIDE_SURF',
+    report
+  }
+}
+
 export const spitCastPontoSurf = (report) => {
   return {
     type: 'PONTO_SURF',
