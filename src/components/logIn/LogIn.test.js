@@ -2,7 +2,6 @@ import React              from 'react'
 import { shallow }        from 'enzyme'
 import fetchMock          from 'fetch-mock'
 import { browserHistory } from 'react-router'
-import { SVGguy }         from '../welcomeScreen/WelcomeScreen'
 
 
 import LogIn from './LogIn'
@@ -11,7 +10,6 @@ describe('testing the loging component', () => {
 
   it('should render without crashing', () => {
     let wrapper = shallow(<LogIn signIn={jest.fn()}/>)
-    console.log(wrapper.debug());
 
     expect(wrapper.find('input').length).toBe(2)
     expect(wrapper.find('button').length).toBe(1)
@@ -89,6 +87,7 @@ describe('testing the loging component', () => {
         value: 'buttz'
       }
     })
+
     password.simulate('change', {
       target: {
         value: 'suhDude'

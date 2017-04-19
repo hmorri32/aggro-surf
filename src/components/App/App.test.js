@@ -6,5 +6,5 @@ import App                from './App.js'
 
 it('renders without crashing', () => {
   let wrapper = shallow(<App />)
-  console.log('hey');
+
 });
