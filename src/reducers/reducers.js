@@ -9,7 +9,7 @@ export const tides = (state = [], action) => {
 
 export const spitBeaconsReport = (state = [], action) => {
   switch(action.type) {
-    case 'BEACONS_REPORT':
+    case 'BEACONS_SURF':
       return [...state, action.report]
     default:
       return state
@@ -36,7 +36,7 @@ export const surfLineBeaconsTide = (state = {}, action) => {
 
 export const spitBlacksReport = (state = [], action) => {
   switch(action.type) {
-    case 'BLACKS_REPORT':
+    case 'BLACKS_SURF':
       return [...state, action.report]
     default:
       return state
@@ -49,6 +49,42 @@ export const surfLineBlacksReport = (state = {}, action) => {
     return action.report
     default:
     return state
+  }
+}
+
+export const spitCardiffReport = (state = [], action) => {
+  switch(action.type) {
+    case 'CARDIFF_SURF':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}
+
+export const surfLineCardiffReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_CARDIFF_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
+export const spitOceansideReport = (state = [], action) => {
+  switch(action.type) {
+    case 'OCEANSIDE_SURF':
+      return [...state, action.report]
+    default:
+      return state
+  }
+}
+
+export const surfLineOceansideReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_OCEANSIDE_SURF':
+      return action.report
+    default:
+      return state
   }
 }
 

@@ -160,9 +160,124 @@ class SpotCharts extends Component {
     )
   }
 
-  pontoForecastChart() {
+  cardiffForecastChart() {
+    const { spitCardiffReport, surfLineCardiffReport, tides } = this.props;
 
+    let slCardiffData         = this.flatten(surfLineCardiffReport.Surf.surf_max)
+    let spitCardiffData       = spitCardiffReport.map(surf => surf.size_ft)
+    let spitCardiffYaxisLabel = spitCardiffReport.map(surf => surf.hour)
+    let mapped                = tides.map(report => report.tide)
+
+    const cardiffData = {
+      labels: spitCardiffYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitCardiffData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slCardiffData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
+        }
+      ]
+    }
+    return (
+      <div>
+          <Link to={{
+            pathname: `/suh/${surfLineCardiffReport.id}/`,
+            spitData: this.props.spitCardiffReport,
+            spitID: spitCardiffReport[0].spot_id
+          }}>
+            <h2 className='SD-tides'>{spitCardiffReport[0].spot_name}</h2>
+          </Link>
+          <RC2 data={cardiffData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
+  oceansideForecastChart() {
+    const { spitOceansideReport, surfLineOceansideReport, tides } = this.props;
+    let slOceansideData         = this.flatten(surfLineOceansideReport.Surf.surf_max)
+    let spitOceansideData       = spitOceansideReport.map(stuff => stuff.size_ft)
+    let spitOceansideYaxisLabel = spitOceansideReport.map(stuff => stuff.hour)
+    let mapped                  = tides.map(stuff => stuff.tide)
+
+    const oceansideData = {
+      labels: spitOceansideYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitOceansideData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slOceansideData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
+        }
+      ]
+    }
+    return (
+      <div>
+          <Link to={{
+            pathname: `/suh/${surfLineOceansideReport.id}/`,
+            spitData: this.props.spitOceansideReport,
+            spitID: spitOceansideReport[0].spot_id
+          }}>
+            <h2 className='SD-tides'>{spitOceansideReport[0].spot_name}</h2>
+          </Link>
+          <RC2 data={oceansideData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
+  pontoForecastChart() {
     const { spitPontoReport, surfLinePontoReport, tides } = this.props;
+
     let slPontoData         = this.flatten(surfLinePontoReport.Surf.surf_max)
     let spitPontoData       = spitPontoReport.map(stuff => stuff.size_ft)
     let spitPontoYaxisLabel = spitPontoReport.map(stuff => stuff.hour)
@@ -215,65 +330,6 @@ class SpotCharts extends Component {
             <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
           </Link>
           <RC2 data={pontoData} type='bar' options={this.gridLineOptions()} />
-      </div>
-    )
-  }
-
-  windanseaForecastChart() {
-
-    const { spitWindanseaReport, surfLineWindanseaReport, tides } = this.props;
-    let slWindanseaData         = this.flatten(surfLineWindanseaReport.Surf.surf_max)
-    let spitWindanseaData       = spitWindanseaReport.map(stuff => stuff.size_ft)
-    let spitWindanseaYaxisLabel = spitWindanseaReport.map(stuff => stuff.hour)
-    let mapped                  = tides.map(stuff => stuff.tide)
-
-    const windanseaData = {
-      labels: spitWindanseaYaxisLabel,
-      datasets: [
-        {
-          label: 'Spitcast',
-          backgroundColor: '#52B3D9',
-          borderColor: '#52B3D9',
-          borderWidth: 1,
-          hoverBackgroundColor: '#C5EFF7',
-          hoverBorderColor: '#52B3D9',
-          data: spitWindanseaData,
-        },
-        {
-          label: 'Surfline',
-          backgroundColor: '#C5EFF7',
-          borderColor: '#C5EFF7',
-          borderWidth: 1,
-          hoverBackgroundColor: '#52B3D9',
-          hoverBorderColor: '#C5EFF7',
-          data: slWindanseaData,
-        },
-        {
-          label: 'SD County Tides',
-          type: 'line',
-          fill: false,
-          borderColor: 'rgb(34, 49, 63)',
-          pointBorderColor: 'rgb(34, 49, 63)',
-          pointBackgroundColor: '#fff',
-          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
-          pointRadius: 2,
-          pointHitRadius: 2,
-          data: mapped,
-        }
-      ]
-    }
-
-    return (
-      <div>
-        <Link to={{
-          pathname: `/suh/${surfLineWindanseaReport.id}/`,
-          spitData: this.props.spitWindanseaReport,
-          spitID: spitWindanseaReport[0].spot_id
-        }}>
-          <h2 className='SD-tides'>{spitWindanseaReport[0].spot_name}</h2>
-        </Link>
-        <RC2 data={windanseaData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -337,13 +393,135 @@ class SpotCharts extends Component {
     )
   }
 
+  tamarackForecastChart() {
+    const { spitTamarackReport, surfLineTamarackReport, tides } = this.props;
+    console.log(spitTamarackReport, surfLineTamarackReport);
+    let slTamarackData         = this.flatten(surfLineTamarackReport.Surf.surf_max)
+    let spitTamarackData       = spitTamarackReport.map(stuff => stuff.size_ft)
+    let spitTamarackYaxisLabel = spitTamarackReport.map(stuff => stuff.hour)
+    let mapped                 = tides.map(stuff => stuff.tide)
+
+    const tamarackData = {
+      labels: spitTamarackYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitTamarackData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slTamarackData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
+        }
+      ]
+    }
+
+    return (
+      <div>
+        <Link to={{
+          pathname: `/suh/${surfLineTamarackReport.id}/`,
+          spitData: this.props.spitTamarackReport,
+          spitID: spitTamarackReport[0].spot_id
+        }}>
+          <h2 className='SD-tides'>{spitTamarackReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={tamarackData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
+  windanseaForecastChart() {
+
+    const { spitWindanseaReport, surfLineWindanseaReport, tides } = this.props;
+    let slWindanseaData         = this.flatten(surfLineWindanseaReport.Surf.surf_max)
+    let spitWindanseaData       = spitWindanseaReport.map(stuff => stuff.size_ft)
+    let spitWindanseaYaxisLabel = spitWindanseaReport.map(stuff => stuff.hour)
+    let mapped                  = tides.map(stuff => stuff.tide)
+
+    const windanseaData = {
+      labels: spitWindanseaYaxisLabel,
+      datasets: [
+        {
+          label: 'Spitcast',
+          backgroundColor: '#52B3D9',
+          borderColor: '#52B3D9',
+          borderWidth: 1,
+          hoverBackgroundColor: '#C5EFF7',
+          hoverBorderColor: '#52B3D9',
+          data: spitWindanseaData,
+        },
+        {
+          label: 'Surfline',
+          backgroundColor: '#C5EFF7',
+          borderColor: '#C5EFF7',
+          borderWidth: 1,
+          hoverBackgroundColor: '#52B3D9',
+          hoverBorderColor: '#C5EFF7',
+          data: slWindanseaData,
+        },
+        {
+          label: 'SD County Tides',
+          type: 'line',
+          fill: false,
+          borderColor: 'rgb(34, 49, 63)',
+          pointBorderColor: 'rgb(34, 49, 63)',
+          pointBackgroundColor: '#fff',
+          pointHoverBackgroundColor: 'rgb(34, 49, 63)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointRadius: 2,
+          pointHitRadius: 2,
+          data: mapped,
+        }
+      ]
+    }
+
+    return (
+      <div>
+        <Link to={{
+          pathname: `/suh/${surfLineWindanseaReport.id}/`,
+          spitData: this.props.spitWindanseaReport,
+          spitID: spitWindanseaReport[0].spot_id
+        }}>
+          <h2 className='SD-tides'>{spitWindanseaReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={windanseaData} type='bar' options={this.gridLineOptions()} />
+      </div>
+    )
+  }
+
+
   render() {
     return (
       <div>
         {this.beaconsForecastChart()}
         {this.blacksForeCastChart()}
+        {this.cardiffForecastChart()}
+        {this.oceansideForecastChart()}
         {this.pontoForecastChart()}
         {this.scrippsForecastChart()}
+        {this.tamarackForecastChart()}
         {this.windanseaForecastChart()}
       </div>
     )

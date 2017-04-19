@@ -12,7 +12,7 @@ export const saintDiegoTides = (tides) => {
 
 export const spitCastBeaconsSurf = (report) => {
   return {
-    type: 'BEACONS_REPORT',
+    type: 'BEACONS_SURF',
     report
   }
 };
@@ -34,7 +34,7 @@ export const surfLineBeaconsTide = (report) => {
 
 export const spitCastBlacksSurf = (report) => {
   return {
-    type: 'BLACKS_REPORT',
+    type: 'BLACKS_SURF',
     report
   }
 };
@@ -45,6 +45,34 @@ export const surfLineBlacksSurf = (report) => {
     report
   }
 };
+
+export const spitCastCardiffSurf = (report) => {
+  return {
+    type: 'CARDIFF_SURF',
+    report
+  }
+}
+
+export const surfLineCardiffSurf = (report) => {
+  return {
+    type: 'SL_CARDIFF_SURF',
+    report
+  }
+}
+
+export const spitCastOceansideSurf = (report) => {
+  return {
+    type: 'OCEANSIDE_SURF',
+    report
+  }
+}
+
+export const surfLineOceansideSurf = (report) => {
+  return {
+    type: 'SL_OCEANSIDE_SURF',
+    report
+  }
+}
 
 export const spitCastPontoSurf = (report) => {
   return {
