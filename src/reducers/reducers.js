@@ -124,6 +124,24 @@ export const surfLineScrippsReport = (state = {}, action) => {
   }
 }
 
+export const spitSwamisReport = (state = [], action) => {
+  switch(action.type) {
+    case 'SWAMIS_SURF':
+    return [...state, action.report]
+    default:
+    return state
+  }
+}
+
+export const surfLineSwamisReport = (state = {}, action) => {
+  switch(action.type) {
+    case 'SL_SWAMIS_SURF':
+    return action.report
+    default:
+    return state
+  }
+}
+
 export const spitTamarackReport = (state = [], action) => {
   switch(action.type) {
     case 'TAMARACK_SURF':
