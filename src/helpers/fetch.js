@@ -1,6 +1,8 @@
 
 // FETCH : CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
+//  MSW : have api key. bring in spots. seems as though they provide forecast charts. implement those pups somewhere. 
+
 
 export const spitCastBeaconsData = () => {
   return fetch('http://api.spitcast.com/api/spot/forecast/235/')
