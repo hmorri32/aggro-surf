@@ -2,6 +2,15 @@
 // FETCH : CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
 //  MSW : have api key. bring in spots. seems as though they provide forecast charts. implement those pups somewhere. 
+// beacons: 4562
+// blacks: 295
+// cardiff: 4663
+// oceanside: 664
+// ponto: 1149
+// scripps: 296
+// swamis: 293
+// tamarack: 292
+// windansea: 4214
 
 
 export const spitCastBeaconsData = () => {
