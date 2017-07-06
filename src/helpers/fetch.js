@@ -1,7 +1,8 @@
+import { MSWkeys } from './keys.js'
 
 // FETCH : CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
-//  MSW : have api key. bring in spots. seems as though they provide forecast charts. implement those pups somewhere. 
+//  MSW : have api key. bring in spots. seems as though they provide forecast charts. implement those pups somewhere.
 // beacons: 4562
 // blacks: 295
 // cardiff: 4663
@@ -11,7 +12,6 @@
 // swamis: 293
 // tamarack: 292
 // windansea: 4214
-
 
 export const spitCastBeaconsData = () => {
   return fetch('http://api.spitcast.com/api/spot/forecast/235/')
@@ -103,7 +103,7 @@ export const surfLineSwamisData = () => {
   .then(response => response.json())
 }
 
-export const surfineTamarackData = () => {
+export const surfLineTamarackData = () => {
   return fetch('http://api.surfline.com/v1/forecasts/4242')
   .then(response => response.json())
 }
@@ -113,14 +113,53 @@ export const surfLineWindanseaData = () => {
   .then(response => response.json())
 }
 
+export const magicBeaconsData = () => {
+  return fetch(`http://magicseaweed.com/api/${MSWkeys}/forecast/?spot_id=4562`)
+  .then(response => response.json())
+}
 
+export const magicBeaconsTide = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicBlacksData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicCardiffData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicOceansideData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicPontoData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicScrippsData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicSwamisData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
+export const magicTamarackData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 
-
+export const magicWindanseaData = () => {
+  return fetch()
+  .then(response => response.json())
+}
 

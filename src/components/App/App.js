@@ -153,7 +153,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.surfineTamarackData()
+    fetch.surfLineTamarackData()
     .then((json) => {
       this.props.surfLineTamarackSurf(json)
     })
@@ -164,6 +164,9 @@ class App extends Component {
       this.props.surfLineWindanseaSurf(json)
     })
     .catch(e => e)
+
+    fetch.magicBeaconsData()
+    .then(json => console.log(json))
   }
 
   checkAuth() {
@@ -180,7 +183,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('render');
     return (
       <div className="App">
         <Route exact path='/' render={ () => {
