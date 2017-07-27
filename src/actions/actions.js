@@ -1,8 +1,5 @@
 // FETCH SCRIPPS spit 228 surfline 4246, CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
-
-
-
 export const saintDiegoTides = (tides) => {
   return {
     type: 'GRAB_TIDES',
@@ -139,6 +136,13 @@ export const spitCastWindanseaSurf = (report) => {
 export const surfLineWindanseaSurf = (report) => {
   return {
     type: 'SL_WINDANSEA_SURF',
+    report
+  }
+};
+
+export const magicBeaconsSurf = (report) => {
+  return {
+    type: 'MSW_BEACONS_SURF',
     report
   }
 };

@@ -164,9 +164,9 @@ class App extends Component {
       this.props.surfLineWindanseaSurf(json)
     })
     .catch(e => e)
-    
+
     fetch.magicBeaconsData()
-    .then(json => console.log(json))
+    .then(json => this.props.magicBeaconsSurf(json))
   }
 
   checkAuth() {

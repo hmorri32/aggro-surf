@@ -178,6 +178,15 @@ export const surfLineWindanseaReport = (state={}, action) => {
   }
 }
 
+export const magicBeaconsReport = (state=[], action) => {
+  switch(action.type) {
+    case 'MSW_BEACONS_SURF':
+      return action.report
+    default:
+      return state
+  }
+}
+
 export const currentUser = (state=false, action) => {
   switch(action.type) {
     case 'LOG_IN':
