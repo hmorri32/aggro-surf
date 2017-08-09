@@ -10,7 +10,6 @@ const app          = module.exports = express();
 
 app.set('port', process.env.PORT || 3001);
 
-app.use(favicon(path.join(__dirname, 'client/public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
