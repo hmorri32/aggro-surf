@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route }            from 'react-router-dom';
-import * as fetch           from '../../helpers/fetch.js'
+import * as fetcher         from '../../helpers/fetch.js'
 import { WelcomeScreen }    from '../welcomeScreen/WelcomeScreen';
 import dataVizContainer     from '../dataVizGrid/DataVizContainer';
 import SpotDetailContainer  from '../spotDetail/SpotDetailContainer';
@@ -15,7 +15,7 @@ class App extends Component {
   componentWillMount() {
     this.checkAuth()
 
-    fetch.spitCastBeaconsData()
+    fetcher.spitCastBeaconsData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastBeaconsSurf(report)
@@ -24,7 +24,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastBlacksData()
+    fetcher.spitCastBlacksData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastBlacksSurf(report)
@@ -33,7 +33,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastCardiffData()
+    fetcher.spitCastCardiffData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastCardiffSurf(report)
@@ -42,7 +42,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastOceansideData()
+    fetcher.spitCastOceansideData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastOceansideSurf(report)
@@ -51,7 +51,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastPontoData()
+    fetcher.spitCastPontoData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastPontoSurf(report)
@@ -60,7 +60,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastScrippsData()
+    fetcher.spitCastScrippsData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastScrippsSurf(report)
@@ -69,7 +69,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastSwamisData()
+    fetcher.spitCastSwamisData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastSwamisSurf(report)
@@ -78,7 +78,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastTamarackData()
+    fetcher.spitCastTamarackData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastTamarackSurf(report)
@@ -87,7 +87,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastWindanseaData()
+    fetcher.spitCastWindanseaData()
     .then((json) => {
       json.map((report) => {
         this.props.spitCastWindanseaSurf(report)
@@ -96,7 +96,7 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.spitCastSDTides()
+    fetcher.spitCastSDTides()
     .then((json) => {
       json.map((tideInfo) => {
         this.props.saintDiegoTides(tideInfo)
@@ -105,70 +105,74 @@ class App extends Component {
     })
     .catch(e => e)
 
-    fetch.surfLineBeaconsData()
+    fetcher.surfLineBeaconsData()
     .then((json) => {
       this.props.surfLineBeaconsSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineBeaconsTide()
+    fetcher.surfLineBeaconsTide()
     .then((json) => {
       this.props.surfLineBeaconsTide(json.Tide.dataPoints)
     })
     .catch(e => e)
 
-    fetch.surfLineBlacksData()
+    fetcher.surfLineBlacksData()
     .then((json) => {
       this.props.surfLineBlacksSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineCardiffData()
+    fetcher.surfLineCardiffData()
     .then((json) => {
       this.props.surfLineCardiffSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineOceansideData()
+    fetcher.surfLineOceansideData()
     .then((json) => {
       this.props.surfLineOceansideSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLinePontoData()
+    fetcher.surfLinePontoData()
     .then((json) => {
       this.props.surfLinePontoSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineScrippsData()
+    fetcher.surfLineScrippsData()
     .then((json) => {
       this.props.surfLineScrippsSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineSwamisData()
+    fetcher.surfLineSwamisData()
     .then((json) => {
       this.props.surfLineSwamisSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineTamarackData()
+    fetcher.surfLineTamarackData()
     .then((json) => {
       this.props.surfLineTamarackSurf(json)
     })
     .catch(e => e)
 
-    fetch.surfLineWindanseaData()
+    fetcher.surfLineWindanseaData()
     .then((json) => {
       this.props.surfLineWindanseaSurf(json)
     })
     .catch(e => e)
 
-    fetch.magicBeaconsData()
+    fetcher.magicBeaconsData()
     .then(json => this.props.magicBeaconsSurf(json))
-  }
 
+    fetch('api/v1/forecast')
+    .then(response => response.json())
+    .then((response) => console.log(response))
+  }
+  
   checkAuth() {
     const { logIn, history } = this.props
 

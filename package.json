@@ -1,35 +1,38 @@
 {
-  "name": "aggro-surf",
-  "version": "0.1.0",
+  "name": "aggro-backend",
+  "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint .",
+    "test": "./node_modules/.bin/mocha ./test/**.js",
+    "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build"
+  },
   "dependencies": {
-    "chart.js": "^2.5.0",
-    "chartjs-plugin-zoom": "^0.4.5",
-    "firebase": "^3.7.8",
-    "history": "^4.6.1",
-    "prop-types": "^15.5.6",
-    "react": "^15.5.3",
-    "react-chartjs2": "^1.1.2",
-    "react-dom": "^15.5.3",
-    "react-redux": "^5.0.4",
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.0.0",
-    "react-router-redux": "^5.0.0-alpha.4",
-    "redux": "^3.6.0"
+    "async": "^2.4.1",
+    "axios": "^0.16.1",
+    "body-parser": "~1.17.1",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "knex": "^0.13.0",
+    "knex-seed-file": "^0.3.1",
+    "mocha": "^3.4.1",
+    "morgan": "~1.8.1",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "pg": "^6.2.2",
+    "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
-    "enzyme": "^2.8.2",
-    "fetch-mock": "^5.10.0",
-    "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4",
-    "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.5.4",
-    "redux-mock-store": "^1.2.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1"
   }
 }
