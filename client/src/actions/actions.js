@@ -1,157 +1,155 @@
 // FETCH SCRIPPS spit 228 surfline 4246, CARDIFF spit 232 surfline 139590, SWAMIS spit 234 surfline 4789, GRANDVIEW spit 400 surfline 4771, OCEANSIDE spit 238 surfline 4238
 
-export const saintDiegoTides = (tides) => {
+export const saintDiegoTides = tides => {
   return {
-    type: 'GRAB_TIDES',
+    type: "GRAB_TIDES",
     tides
-  }
+  };
 };
 
-export const spitCastBeaconsSurf = (report) => {
+export const spitCastBeaconsSurf = report => {
   return {
-    type: 'BEACONS_SURF',
+    type: "BEACONS_SURF",
     report
-  }
+  };
 };
 
-export const surfLineBeaconsSurf = (report) => {
+export const surfLineBeaconsSurf = report => {
   return {
-    type: 'SL_BEACONS_SURF',
+    type: "SL_BEACONS_SURF",
     report
-  }
+  };
 };
 
-export const surfLineBeaconsTide = (report) => {
+export const surfLineBeaconsTide = report => {
   return {
-    type: 'SL_BEACONS_TIDE',
+    type: "SL_BEACONS_TIDE",
     report
-  }
+  };
 };
 
-export const spitCastBlacksSurf = (report) => {
+export const spitCastBlacksSurf = report => {
   return {
-    type: 'BLACKS_SURF',
+    type: "BLACKS_SURF",
     report
-  }
+  };
 };
 
-export const surfLineBlacksSurf = (report) => {
+export const surfLineBlacksSurf = report => {
   return {
-    type: 'SL_BLACKS_SURF',
+    type: "SL_BLACKS_SURF",
     report
-  }
+  };
 };
 
-export const spitCastCardiffSurf = (report) => {
+export const spitCastCardiffSurf = report => {
   return {
-    type: 'CARDIFF_SURF',
+    type: "CARDIFF_SURF",
     report
-  }
-}
-
-export const surfLineCardiffSurf = (report) => {
-  return {
-    type: 'SL_CARDIFF_SURF',
-    report
-  }
-}
-
-export const spitCastOceansideSurf = (report) => {
-  return {
-    type: 'OCEANSIDE_SURF',
-    report
-  }
-}
-
-export const surfLineOceansideSurf = (report) => {
-  return {
-    type: 'SL_OCEANSIDE_SURF',
-    report
-  }
-}
-
-export const spitCastPontoSurf = (report) => {
-  return {
-    type: 'PONTO_SURF',
-    report
-  }
+  };
 };
 
-export const surfLinePontoSurf = (report) => {
+export const surfLineCardiffSurf = report => {
   return {
-    type: 'SL_PONTO_SURF',
+    type: "SL_CARDIFF_SURF",
     report
-  }
+  };
 };
 
-export const spitCastScrippsSurf = (report) => {
+export const spitCastOceansideSurf = report => {
   return {
-    type: 'SCRIPPS_SURF',
+    type: "OCEANSIDE_SURF",
     report
-  }
+  };
 };
 
-export const surfLineScrippsSurf = (report) => {
+export const surfLineOceansideSurf = report => {
   return {
-    type: 'SL_SCRIPPS_SURF',
+    type: "SL_OCEANSIDE_SURF",
     report
-  }
+  };
 };
 
-export const spitCastSwamisSurf = (report) => {
+export const spitCastPontoSurf = report => {
   return {
-    type: 'SWAMIS_SURF',
+    type: "PONTO_SURF",
     report
-  }
+  };
 };
 
-export const surfLineSwamisSurf = (report) => {
+export const surfLinePontoSurf = report => {
   return {
-    type: 'SL_SWAMIS_SURF',
+    type: "SL_PONTO_SURF",
     report
-  }
+  };
 };
 
-export const spitCastTamarackSurf = (report) => {
+export const spitCastScrippsSurf = report => {
   return {
-    type: 'TAMARACK_SURF',
+    type: "SCRIPPS_SURF",
     report
-  }
+  };
 };
 
-export const surfLineTamarackSurf = (report) => {
+export const surfLineScrippsSurf = report => {
   return {
-    type: 'SL_TAMARACK_SURF',
+    type: "SL_SCRIPPS_SURF",
     report
-  }
+  };
 };
 
-export const spitCastWindanseaSurf = (report) => {
+export const spitCastSwamisSurf = report => {
   return {
-    type: 'WINDANSEA_SURF',
+    type: "SWAMIS_SURF",
     report
-  }
+  };
 };
 
-export const surfLineWindanseaSurf = (report) => {
+export const surfLineSwamisSurf = report => {
   return {
-    type: 'SL_WINDANSEA_SURF',
+    type: "SL_SWAMIS_SURF",
     report
-  }
+  };
 };
 
-export const magicBeaconsSurf = (report) => {
+export const spitCastTamarackSurf = report => {
   return {
-    type: 'MSW_BEACONS_SURF',
+    type: "TAMARACK_SURF",
     report
-  }
+  };
 };
 
-export const logIn = (boolean) => {
+export const surfLineTamarackSurf = report => {
   return {
-    type: 'LOG_IN',
+    type: "SL_TAMARACK_SURF",
+    report
+  };
+};
+
+export const spitCastWindanseaSurf = report => {
+  return {
+    type: "WINDANSEA_SURF",
+    report
+  };
+};
+
+export const surfLineWindanseaSurf = report => {
+  return {
+    type: "SL_WINDANSEA_SURF",
+    report
+  };
+};
+
+export const magicBeaconsSurf = report => {
+  return {
+    type: "MSW_BEACONS_SURF",
+    report
+  };
+};
+
+export const logIn = boolean => {
+  return {
+    type: "LOG_IN",
     boolean
-  }
+  };
 };
-
-
