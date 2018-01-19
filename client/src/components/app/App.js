@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { Route }            from 'react-router-dom';
 import * as fetcher         from '../../helpers/fetch.js';
@@ -172,7 +173,7 @@ class App extends Component {
     .then(response => response.json())
     .then((response) => console.log(response));
   }
-  
+
   checkAuth() {
     const { logIn, history } = this.props;
 
