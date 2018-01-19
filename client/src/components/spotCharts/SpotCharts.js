@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React, { Component } from 'react'
-import { Link }             from 'react-router-dom'
-import RC2                  from 'react-chartjs2'
+import { Link } from 'react-router-dom'
+import RC2 from 'react-chartjs2'
 
 
 class SpotCharts extends Component {
@@ -45,10 +46,10 @@ class SpotCharts extends Component {
   beaconsForecastChart() {
 
     const { spitBeaconsReport, surfLineBeaconsReport, tides } = this.props;
-    let slBeaconsData        = this.flatten(surfLineBeaconsReport.Surf.surf_max)
-    let spitBeaconData       = spitBeaconsReport.map(stuff => stuff.size_ft)
+    let slBeaconsData = this.flatten(surfLineBeaconsReport.Surf.surf_max)
+    let spitBeaconData = spitBeaconsReport.map(stuff => stuff.size_ft)
     let spitBeaconYaxisLabel = spitBeaconsReport.map(stuff => stuff.hour)
-    let mapped               = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const data = {
       labels: spitBeaconYaxisLabel,
@@ -104,10 +105,10 @@ class SpotCharts extends Component {
   blacksForeCastChart() {
 
     const { spitBlacksReport, surfLineBlacksReport, tides } = this.props;
-    let surfLineBlacksData   = this.flatten(surfLineBlacksReport.Surf.surf_max)
-    let spitBlacksData       = spitBlacksReport.map(surf => surf.size_ft)
+    let surfLineBlacksData = this.flatten(surfLineBlacksReport.Surf.surf_max)
+    let spitBlacksData = spitBlacksReport.map(surf => surf.size_ft)
     let spitBlacksYaxisLabel = spitBlacksReport.map(axis => axis.hour)
-    let mapped               = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const blacksData = {
       labels: spitBlacksYaxisLabel,
@@ -148,13 +149,13 @@ class SpotCharts extends Component {
 
     return (
       <div>
-          <Link to={{
-            pathname: `/suh/${surfLineBlacksReport.id}/`,
-            spitData: this.props.spitBlacksReport,
-            spitID: spitBlacksReport[0].spot_id
-          }}>
-            <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
-          </Link>
+        <Link to={{
+          pathname: `/suh/${surfLineBlacksReport.id}/`,
+          spitData: this.props.spitBlacksReport,
+          spitID: spitBlacksReport[0].spot_id
+        }}>
+          <h2 className='SD-tides'>{spitBlacksReport[0].spot_name}</h2>
+        </Link>
         <RC2 data={blacksData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
@@ -163,10 +164,10 @@ class SpotCharts extends Component {
   cardiffForecastChart() {
 
     const { spitCardiffReport, surfLineCardiffReport, tides } = this.props;
-    let slCardiffData         = this.flatten(surfLineCardiffReport.Surf.surf_max)
-    let spitCardiffData       = spitCardiffReport.map(surf => surf.size_ft)
+    let slCardiffData = this.flatten(surfLineCardiffReport.Surf.surf_max)
+    let spitCardiffData = spitCardiffReport.map(surf => surf.size_ft)
     let spitCardiffYaxisLabel = spitCardiffReport.map(surf => surf.hour)
-    let mapped                = tides.map(report => report.tide)
+    let mapped = tides.map(report => report.tide)
 
     const cardiffData = {
       labels: spitCardiffYaxisLabel,
@@ -206,14 +207,14 @@ class SpotCharts extends Component {
     }
     return (
       <div>
-          <Link to={{
-            pathname: `/suh/${surfLineCardiffReport.id}/`,
-            spitData: this.props.spitCardiffReport,
-            spitID: spitCardiffReport[0].spot_id
-          }}>
-            <h2 className='SD-tides'>{spitCardiffReport[0].spot_name}</h2>
-          </Link>
-          <RC2 data={cardiffData} type='bar' options={this.gridLineOptions()} />
+        <Link to={{
+          pathname: `/suh/${surfLineCardiffReport.id}/`,
+          spitData: this.props.spitCardiffReport,
+          spitID: spitCardiffReport[0].spot_id
+        }}>
+          <h2 className='SD-tides'>{spitCardiffReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={cardiffData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -221,10 +222,10 @@ class SpotCharts extends Component {
   oceansideForecastChart() {
 
     const { spitOceansideReport, surfLineOceansideReport, tides } = this.props;
-    let slOceansideData         = this.flatten(surfLineOceansideReport.Surf.surf_max)
-    let spitOceansideData       = spitOceansideReport.map(stuff => stuff.size_ft)
+    let slOceansideData = this.flatten(surfLineOceansideReport.Surf.surf_max)
+    let spitOceansideData = spitOceansideReport.map(stuff => stuff.size_ft)
     let spitOceansideYaxisLabel = spitOceansideReport.map(stuff => stuff.hour)
-    let mapped                  = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const oceansideData = {
       labels: spitOceansideYaxisLabel,
@@ -264,14 +265,14 @@ class SpotCharts extends Component {
     }
     return (
       <div>
-          <Link to={{
-            pathname: `/suh/${surfLineOceansideReport.id}/`,
-            spitData: this.props.spitOceansideReport,
-            spitID: spitOceansideReport[0].spot_id
-          }}>
-            <h2 className='SD-tides'>{spitOceansideReport[0].spot_name}</h2>
-          </Link>
-          <RC2 data={oceansideData} type='bar' options={this.gridLineOptions()} />
+        <Link to={{
+          pathname: `/suh/${surfLineOceansideReport.id}/`,
+          spitData: this.props.spitOceansideReport,
+          spitID: spitOceansideReport[0].spot_id
+        }}>
+          <h2 className='SD-tides'>{spitOceansideReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={oceansideData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -279,10 +280,10 @@ class SpotCharts extends Component {
   pontoForecastChart() {
 
     const { spitPontoReport, surfLinePontoReport, tides } = this.props;
-    let slPontoData         = this.flatten(surfLinePontoReport.Surf.surf_max)
-    let spitPontoData       = spitPontoReport.map(stuff => stuff.size_ft)
+    let slPontoData = this.flatten(surfLinePontoReport.Surf.surf_max)
+    let spitPontoData = spitPontoReport.map(stuff => stuff.size_ft)
     let spitPontoYaxisLabel = spitPontoReport.map(stuff => stuff.hour)
-    let mapped              = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const pontoData = {
       labels: spitPontoYaxisLabel,
@@ -323,14 +324,14 @@ class SpotCharts extends Component {
 
     return (
       <div>
-          <Link to={{
-            pathname: `/suh/${surfLinePontoReport.id}/`,
-            spitData: this.props.spitPontoReport,
-            spitID: spitPontoReport[0].spot_id
-          }}>
-            <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
-          </Link>
-          <RC2 data={pontoData} type='bar' options={this.gridLineOptions()} />
+        <Link to={{
+          pathname: `/suh/${surfLinePontoReport.id}/`,
+          spitData: this.props.spitPontoReport,
+          spitID: spitPontoReport[0].spot_id
+        }}>
+          <h2 className='SD-tides'>{spitPontoReport[0].spot_name}</h2>
+        </Link>
+        <RC2 data={pontoData} type='bar' options={this.gridLineOptions()} />
       </div>
     )
   }
@@ -338,10 +339,10 @@ class SpotCharts extends Component {
   scrippsForecastChart() {
 
     const { spitScrippsReport, surfLineScrippsReport, tides } = this.props;
-    let slScrippsData         = this.flatten(surfLineScrippsReport.Surf.surf_max)
-    let spitScrippsData       = spitScrippsReport.map(stuff => stuff.size_ft)
+    let slScrippsData = this.flatten(surfLineScrippsReport.Surf.surf_max)
+    let spitScrippsData = spitScrippsReport.map(stuff => stuff.size_ft)
     let spitScrippsYAxisLabel = spitScrippsReport.map(stuff => stuff.hour)
-    let mapped                = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const scrippsData = {
       labels: spitScrippsYAxisLabel,
@@ -397,10 +398,10 @@ class SpotCharts extends Component {
   swamisForecastChart() {
 
     const { spitSwamisReport, surfLineSwamisReport, tides } = this.props;
-    let slSwamisData         = this.flatten(surfLineSwamisReport.Surf.surf_max)
-    let spitSwamisData       = spitSwamisReport.map(stuff => stuff.size_ft)
+    let slSwamisData = this.flatten(surfLineSwamisReport.Surf.surf_max)
+    let spitSwamisData = spitSwamisReport.map(stuff => stuff.size_ft)
     let spitSwamisYaxisLabel = spitSwamisReport.map(stuff => stuff.hour)
-    let mapped               = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const swamisData = {
       labels: spitSwamisYaxisLabel,
@@ -457,10 +458,10 @@ class SpotCharts extends Component {
   tamarackForecastChart() {
 
     const { spitTamarackReport, surfLineTamarackReport, tides } = this.props;
-    let slTamarackData         = this.flatten(surfLineTamarackReport.Surf.surf_max)
-    let spitTamarackData       = spitTamarackReport.map(stuff => stuff.size_ft)
+    let slTamarackData = this.flatten(surfLineTamarackReport.Surf.surf_max)
+    let spitTamarackData = spitTamarackReport.map(stuff => stuff.size_ft)
     let spitTamarackYaxisLabel = spitTamarackReport.map(stuff => stuff.hour)
-    let mapped                 = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const tamarackData = {
       labels: spitTamarackYaxisLabel,
@@ -516,10 +517,10 @@ class SpotCharts extends Component {
   windanseaForecastChart() {
 
     const { spitWindanseaReport, surfLineWindanseaReport, tides } = this.props;
-    let slWindanseaData         = this.flatten(surfLineWindanseaReport.Surf.surf_max)
-    let spitWindanseaData       = spitWindanseaReport.map(stuff => stuff.size_ft)
+    let slWindanseaData = this.flatten(surfLineWindanseaReport.Surf.surf_max)
+    let spitWindanseaData = spitWindanseaReport.map(stuff => stuff.size_ft)
     let spitWindanseaYaxisLabel = spitWindanseaReport.map(stuff => stuff.hour)
-    let mapped                  = tides.map(stuff => stuff.tide)
+    let mapped = tides.map(stuff => stuff.tide)
 
     const windanseaData = {
       labels: spitWindanseaYaxisLabel,
